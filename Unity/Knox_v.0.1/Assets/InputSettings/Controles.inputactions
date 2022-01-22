@@ -84,6 +84,33 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Camara",
+            "id": "3715f69e-e1a9-4cb7-b47f-4bd6a5f5ace4",
+            "actions": [
+                {
+                    "name": "Rotar",
+                    "type": "Value",
+                    "id": "c94e0715-944e-496a-ae2d-ca3cd8d39b3c",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "3cce567d-1a5d-46a7-9324-efddc2c61eaa",
+                    "path": "<Gamepad>/rightStick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotar",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

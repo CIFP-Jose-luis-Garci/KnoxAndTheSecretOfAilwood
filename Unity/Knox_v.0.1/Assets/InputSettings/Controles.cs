@@ -97,6 +97,33 @@ public class @Controles : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Camara"",
+            ""id"": ""3715f69e-e1a9-4cb7-b47f-4bd6a5f5ace4"",
+            ""actions"": [
+                {
+                    ""name"": ""Rotar"",
+                    ""type"": ""Value"",
+                    ""id"": ""c94e0715-944e-496a-ae2d-ca3cd8d39b3c"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""3cce567d-1a5d-46a7-9324-efddc2c61eaa"",
+                    ""path"": ""<Gamepad>/rightStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotar"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -107,6 +134,9 @@ public class @Controles : IInputActionCollection, IDisposable
         m_Moverse_Run = m_Moverse.FindAction("Run", throwIfNotFound: true);
         m_Moverse_Rodar = m_Moverse.FindAction("Rodar", throwIfNotFound: true);
         m_Moverse_Saltar = m_Moverse.FindAction("Saltar", throwIfNotFound: true);
+        // Camara
+        m_Camara = asset.FindActionMap("Camara", throwIfNotFound: true);
+        m_Camara_Rotar = m_Camara.FindAction("Rotar", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -209,11 +239,48 @@ public class @Controles : IInputActionCollection, IDisposable
         }
     }
     public MoverseActions @Moverse => new MoverseActions(this);
+
+    // Camara
+    private readonly InputActionMap m_Camara;
+    private ICamaraActions m_CamaraActionsCallbackInterface;
+    private readonly InputAction m_Camara_Rotar;
+    public struct CamaraActions
+    {
+        private @Controles m_Wrapper;
+        public CamaraActions(@Controles wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Rotar => m_Wrapper.m_Camara_Rotar;
+        public InputActionMap Get() { return m_Wrapper.m_Camara; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(CamaraActions set) { return set.Get(); }
+        public void SetCallbacks(ICamaraActions instance)
+        {
+            if (m_Wrapper.m_CamaraActionsCallbackInterface != null)
+            {
+                @Rotar.started -= m_Wrapper.m_CamaraActionsCallbackInterface.OnRotar;
+                @Rotar.performed -= m_Wrapper.m_CamaraActionsCallbackInterface.OnRotar;
+                @Rotar.canceled -= m_Wrapper.m_CamaraActionsCallbackInterface.OnRotar;
+            }
+            m_Wrapper.m_CamaraActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Rotar.started += instance.OnRotar;
+                @Rotar.performed += instance.OnRotar;
+                @Rotar.canceled += instance.OnRotar;
+            }
+        }
+    }
+    public CamaraActions @Camara => new CamaraActions(this);
     public interface IMoverseActions
     {
         void OnMover(InputAction.CallbackContext context);
         void OnRun(InputAction.CallbackContext context);
         void OnRodar(InputAction.CallbackContext context);
         void OnSaltar(InputAction.CallbackContext context);
+    }
+    public interface ICamaraActions
+    {
+        void OnRotar(InputAction.CallbackContext context);
     }
 }
