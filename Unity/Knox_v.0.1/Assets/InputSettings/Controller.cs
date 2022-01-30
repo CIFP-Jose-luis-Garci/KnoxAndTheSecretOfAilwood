@@ -11,9 +11,11 @@ public class Controller : MonoBehaviour
     //Variable del joystick izquierdo
     Vector2 stickL;
     bool running;
+
     //bool strafing;
     float triggerR;
     float triggerL;
+
     //Character controller
     CharacterController cc;
 
@@ -22,11 +24,12 @@ public class Controller : MonoBehaviour
 
     //Saltar
     bool saltar;
-    float jumpSpeed = 5f;
+    float jumpSpeed = 10f;
     float gravity = 9.8f;
 
     float impulse;
     float speed;
+
     Vector3 dir;
     Vector3 moveDirection;
 
@@ -63,57 +66,97 @@ public class Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(running == true && stickL.y > 0f)
+        Correr();
+
+        Saltar();
+
+        Rodar();
+
+        Andar();
+    }
+
+    void Correr()
+    {
+        if (running == true && stickL.y > 0f)
         {
             speed = 5f;
             animator.SetBool("Run", true);
         }
+
         else
         {
-            speed = 2f;
+            speed = 0.5f;
             animator.SetFloat("Walk", stickL.y);
             animator.SetBool("Run", false);
         }
+    }
 
-        if(rodar == true && stickL.y > 0)
+    void Saltar()
+    {
+        if (cc.isGrounded)
         {
-            
-            animator.SetTrigger("Rodar");
-            
-        }
-        else
-        {
-
-            animator.ResetTrigger("Rodar");
-            animator.SetFloat("Walk", stickL.y);
-        }
-
-        if(cc.isGrounded)
-        {
-            
             moveDirection = new Vector3(0, 0, 0);
             moveDirection = transform.TransformDirection(moveDirection);
             moveDirection *= speed;
-            if(saltar == true)
+
+            if (saltar == true)
             {
-                animator.SetTrigger("Saltar");
+                animator.SetBool("Saltar", true);
+                animator.SetBool("isGrounded", false);
                 moveDirection.y = jumpSpeed;
             }
-            
+
+            else
+            {
+                animator.SetBool("Saltar", false);
+                animator.SetBool("isGrounded", true);
+            }
         }
-        else
-        {
-            animator.ResetTrigger("Saltar");
-            animator.SetFloat("Walk", stickL.y);
-        }
+    }
+
+    void Andar()
+    {
+        Vector3 dir = transform.TransformDirection(Vector3.forward); // Darle valor a la direccion donde queramos mover el character controller mas adelante.
+        cc.SimpleMove(dir * stickL.y * speed); // Mover el character controller.
+        transform.Rotate(0, stickL.x * speed, 0);
 
         moveDirection.y -= gravity * Time.deltaTime;
         cc.Move(moveDirection * Time.deltaTime);
 
-        dir = transform.TransformDirection(Vector3.forward);
-        cc.SimpleMove(speed * stickL.y * dir);
+         dir = transform.TransformDirection(Vector3.forward);
+         cc.SimpleMove(speed * stickL.y * dir);
 
+            if(stickL.y > 0f)
+            {
+                animator.SetFloat("Walk", stickL.y);
+            }
 
+            else if(stickL.y < 0f)
+            {
+                animator.SetFloat("Walk", stickL.y);
+            }
+
+            else
+            {
+                animator.SetFloat("Walk", stickL.y);
+            }
+
+        
+
+    }
+
+    void Rodar()
+    {
+        if (rodar == true && stickL.y > 0)
+        {
+            animator.SetTrigger("Rodar");
+        }
+
+        else
+        {
+            animator.ResetTrigger("Rodar");
+            animator.SetFloat("Walk", stickL.y);
+        }
     }
 
     private void OnEnable()
