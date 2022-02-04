@@ -20,17 +20,16 @@ public class Controller : MonoBehaviour
     CharacterController cc;
 
     //Rodar
-    bool rodar;
+    bool rodar = false;
 
     //Saltar
     bool saltar;
     float jumpSpeed = 10f;
     float gravity = 9.8f;
 
-    float impulse;
-    float speed;
+    float speed = 20f;
+    float rotSpeed = 1f;
 
-    Vector3 dir;
     Vector3 moveDirection;
 
     private void Awake()
@@ -48,8 +47,8 @@ public class Controller : MonoBehaviour
         controles.Moverse.Run.canceled += ctx => { running = false; };
 
         //Rodar
-        controles.Moverse.Rodar.started += ctx => rodar = ctx.ReadValueAsButton();
-        controles.Moverse.Rodar.canceled += ctx => rodar = ctx.ReadValueAsButton();
+        controles.Moverse.Rodar.started += ctx => Rodar();
+        //controles.Moverse.Rodar.canceled += ctx => rodar = ctx.ReadValueAsButton();
 
         //Saltar
         controles.Moverse.Saltar.started += ctx => saltar = ctx.ReadValueAsButton();
@@ -66,26 +65,42 @@ public class Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Correr();
+        print(rodar);
 
+        Correr();
+        
         Saltar();
 
-        Rodar();
-
         Andar();
+
+        //ComprobarRodar();
+    }
+
+    void ComprobarRodar()
+    {
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Rodar") && rodar == true)
+        {
+            print("He terminado de rodar");
+            rodar = false;
+        }
+    }
+
+    void DejarDeRodar()
+    {
+        rodar = false;
     }
 
     void Correr()
     {
         if (running == true && stickL.y > 0f)
         {
-            speed = 5f;
+            speed = 4f;
             animator.SetBool("Run", true);
         }
 
         else
         {
-            speed = 0.5f;
+            speed = 1.5f;
             animator.SetFloat("Walk", stickL.y);
             animator.SetBool("Run", false);
         }
@@ -93,9 +108,10 @@ public class Controller : MonoBehaviour
 
     void Saltar()
     {
-        if (cc.isGrounded)
+        
+        if (cc.isGrounded && rodar == false)
         {
-            moveDirection = new Vector3(0, 0, 0);
+            moveDirection = new Vector3(0, 0, 0); // Para que vaya recto y no cambie la direccion.
             moveDirection = transform.TransformDirection(moveDirection);
             moveDirection *= speed;
 
@@ -103,7 +119,7 @@ public class Controller : MonoBehaviour
             {
                 animator.SetBool("Saltar", true);
                 animator.SetBool("isGrounded", false);
-                moveDirection.y = jumpSpeed;
+                moveDirection.y = jumpSpeed; // Altura de salto.
             }
 
             else
@@ -112,19 +128,30 @@ public class Controller : MonoBehaviour
                 animator.SetBool("isGrounded", true);
             }
         }
+        
     }
 
-    void Andar()
+    public void Andar()
     {
+        float fwSpeed;
+        if(rodar)
+        {
+            fwSpeed = 1;
+        }
+
+        else
+        {
+            fwSpeed = stickL.y;
+        }
+
         Vector3 dir = transform.TransformDirection(Vector3.forward); // Darle valor a la direccion donde queramos mover el character controller mas adelante.
-        cc.SimpleMove(dir * stickL.y * speed); // Mover el character controller.
-        transform.Rotate(0, stickL.x * speed, 0);
+        
+        cc.SimpleMove(dir * fwSpeed * speed); // Mover el character controller.
+        transform.Rotate(0, stickL.x * rotSpeed, 0);
 
         moveDirection.y -= gravity * Time.deltaTime;
-        cc.Move(moveDirection * Time.deltaTime);
 
-         dir = transform.TransformDirection(Vector3.forward);
-         cc.SimpleMove(speed * stickL.y * dir);
+        cc.Move(moveDirection * Time.deltaTime);
 
             if(stickL.y > 0f)
             {
@@ -140,22 +167,37 @@ public class Controller : MonoBehaviour
             {
                 animator.SetFloat("Walk", stickL.y);
             }
-
-        
-
     }
 
     void Rodar()
     {
-        if (rodar == true && stickL.y > 0)
+        if (stickL.y > 0 && !rodar)
         {
             animator.SetTrigger("Rodar");
+            rodar = true;
+            Invoke("DejarDeRodar", 1.4f);
         }
 
+        /*
         else
         {
             animator.ResetTrigger("Rodar");
             animator.SetFloat("Walk", stickL.y);
+        }
+        */
+    }
+
+    void Escalada()
+    {
+
+        print("hOlas");
+    }
+    
+    private void OnCollisionEnter(Collision other)
+    {
+        if(other.gameObject.tag == "Escalada")
+        {
+            Escalada();
         }
     }
 

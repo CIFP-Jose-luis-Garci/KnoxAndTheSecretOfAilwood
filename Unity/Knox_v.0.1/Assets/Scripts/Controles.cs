@@ -1,4 +1,4 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/InputSettings/Controles.inputactions'
+// GENERATED AUTOMATICALLY FROM 'Assets/Scripts/Controles.inputactions'
 
 using System;
 using System.Collections;
@@ -115,11 +115,38 @@ public class @Controles : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""3cce567d-1a5d-46a7-9324-efddc2c61eaa"",
-                    ""path"": ""<Gamepad>/rightStick/right"",
+                    ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Rotar"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Ataque"",
+            ""id"": ""e5133ade-55fc-43be-8393-0407e583e418"",
+            ""actions"": [
+                {
+                    ""name"": ""Atacar"",
+                    ""type"": ""Button"",
+                    ""id"": ""90593b16-3ad7-4d97-8bc1-afb7c2b90737"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""65c10471-6308-4539-83da-dfd530374b61"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Atacar"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -137,6 +164,9 @@ public class @Controles : IInputActionCollection, IDisposable
         // Camara
         m_Camara = asset.FindActionMap("Camara", throwIfNotFound: true);
         m_Camara_Rotar = m_Camara.FindAction("Rotar", throwIfNotFound: true);
+        // Ataque
+        m_Ataque = asset.FindActionMap("Ataque", throwIfNotFound: true);
+        m_Ataque_Atacar = m_Ataque.FindAction("Atacar", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -272,6 +302,39 @@ public class @Controles : IInputActionCollection, IDisposable
         }
     }
     public CamaraActions @Camara => new CamaraActions(this);
+
+    // Ataque
+    private readonly InputActionMap m_Ataque;
+    private IAtaqueActions m_AtaqueActionsCallbackInterface;
+    private readonly InputAction m_Ataque_Atacar;
+    public struct AtaqueActions
+    {
+        private @Controles m_Wrapper;
+        public AtaqueActions(@Controles wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Atacar => m_Wrapper.m_Ataque_Atacar;
+        public InputActionMap Get() { return m_Wrapper.m_Ataque; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(AtaqueActions set) { return set.Get(); }
+        public void SetCallbacks(IAtaqueActions instance)
+        {
+            if (m_Wrapper.m_AtaqueActionsCallbackInterface != null)
+            {
+                @Atacar.started -= m_Wrapper.m_AtaqueActionsCallbackInterface.OnAtacar;
+                @Atacar.performed -= m_Wrapper.m_AtaqueActionsCallbackInterface.OnAtacar;
+                @Atacar.canceled -= m_Wrapper.m_AtaqueActionsCallbackInterface.OnAtacar;
+            }
+            m_Wrapper.m_AtaqueActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Atacar.started += instance.OnAtacar;
+                @Atacar.performed += instance.OnAtacar;
+                @Atacar.canceled += instance.OnAtacar;
+            }
+        }
+    }
+    public AtaqueActions @Ataque => new AtaqueActions(this);
     public interface IMoverseActions
     {
         void OnMover(InputAction.CallbackContext context);
@@ -282,5 +345,9 @@ public class @Controles : IInputActionCollection, IDisposable
     public interface ICamaraActions
     {
         void OnRotar(InputAction.CallbackContext context);
+    }
+    public interface IAtaqueActions
+    {
+        void OnAtacar(InputAction.CallbackContext context);
     }
 }
