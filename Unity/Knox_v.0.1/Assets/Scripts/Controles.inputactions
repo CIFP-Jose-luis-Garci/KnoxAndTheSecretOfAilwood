@@ -1,0 +1,144 @@
+{
+    "name": "Controles",
+    "maps": [
+        {
+            "name": "Moverse",
+            "id": "b5af89f0-fe04-4b2f-b68d-54088e47aac5",
+            "actions": [
+                {
+                    "name": "Mover",
+                    "type": "Value",
+                    "id": "f564c045-feec-47da-8f52-b9cde55bd447",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Run",
+                    "type": "Button",
+                    "id": "958ef942-9948-4e09-a57c-8c7c118513c1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Rodar",
+                    "type": "Button",
+                    "id": "7c15cda6-488b-46d8-b640-c238cfc396ae",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Saltar",
+                    "type": "Button",
+                    "id": "4d9bb091-9b5f-4aa1-827c-9932b09430da",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "dcc946a5-af61-4809-9740-52e87a79423e",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Mover",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a1d8c93b-4feb-4494-b758-49d473c54bc0",
+                    "path": "<Gamepad>/leftStickPress",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "47f4efa9-bc72-4314-b46e-aea293c69f06",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rodar",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "99322505-d645-43f0-bbb3-5e9c4038a393",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Saltar",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Camara",
+            "id": "3715f69e-e1a9-4cb7-b47f-4bd6a5f5ace4",
+            "actions": [
+                {
+                    "name": "Rotar",
+                    "type": "Value",
+                    "id": "c94e0715-944e-496a-ae2d-ca3cd8d39b3c",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "3cce567d-1a5d-46a7-9324-efddc2c61eaa",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotar",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Ataque",
+            "id": "e5133ade-55fc-43be-8393-0407e583e418",
+            "actions": [
+                {
+                    "name": "Atacar",
+                    "type": "Button",
+                    "id": "90593b16-3ad7-4d97-8bc1-afb7c2b90737",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "65c10471-6308-4539-83da-dfd530374b61",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Atacar",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

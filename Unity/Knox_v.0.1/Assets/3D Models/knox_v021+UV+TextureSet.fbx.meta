@@ -3,7 +3,92 @@ guid: cb8a0c498c202fe45a004c35f3a65c31
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bota
+    second: {fileID: 2100000, guid: 8d969be38c44b2948af0af6e9342b961, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cinturon
+    second: {fileID: 2100000, guid: 8d969be38c44b2948af0af6e9342b961, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hombrera
+    second: {fileID: 479543469726459354, guid: 033511309a6cfb845ba5d38c7e1b2efc, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: body
+    second: {fileID: 2100000, guid: 8d969be38c44b2948af0af6e9342b961, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bolsillo
+    second: {fileID: 2100000, guid: 8d969be38c44b2948af0af6e9342b961, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: capucha
+    second: {fileID: 2100000, guid: 8d969be38c44b2948af0af6e9342b961, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cinturon
+    second: {fileID: 2100000, guid: 8d969be38c44b2948af0af6e9342b961, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cordon
+    second: {fileID: 2100000, guid: 8d969be38c44b2948af0af6e9342b961, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dientes
+    second: {fileID: 2100000, guid: 8d969be38c44b2948af0af6e9342b961, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: flecha
+    second: {fileID: 2100000, guid: 8d969be38c44b2948af0af6e9342b961, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gemas
+    second: {fileID: 2100000, guid: 8d969be38c44b2948af0af6e9342b961, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: guantes
+    second: {fileID: 2100000, guid: 8d969be38c44b2948af0af6e9342b961, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lengua
+    second: {fileID: 2100000, guid: 8d969be38c44b2948af0af6e9342b961, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ojos
+    second: {fileID: 2100000, guid: 8d969be38c44b2948af0af6e9342b961, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pantalon
+    second: {fileID: 2100000, guid: 8d969be38c44b2948af0af6e9342b961, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pendientes
+    second: {fileID: 2100000, guid: 8d969be38c44b2948af0af6e9342b961, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: plumas
+    second: {fileID: 2100000, guid: 8d969be38c44b2948af0af6e9342b961, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

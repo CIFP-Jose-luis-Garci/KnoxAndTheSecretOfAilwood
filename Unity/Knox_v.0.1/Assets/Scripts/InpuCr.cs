@@ -33,6 +33,14 @@ public class @InpuCr : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Atacar"",
+                    ""type"": ""Button"",
+                    ""id"": ""c700fdad-20aa-4234-98d0-c36d083036fd"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -57,6 +65,17 @@ public class @InpuCr : IInputActionCollection, IDisposable
                     ""action"": ""Correr"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""76243891-b27a-48f8-8d7b-884f827e23aa"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Atacar"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -67,6 +86,7 @@ public class @InpuCr : IInputActionCollection, IDisposable
         m_Knox = asset.FindActionMap("Knox", throwIfNotFound: true);
         m_Knox_Andar = m_Knox.FindAction("Andar", throwIfNotFound: true);
         m_Knox_Correr = m_Knox.FindAction("Correr", throwIfNotFound: true);
+        m_Knox_Atacar = m_Knox.FindAction("Atacar", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -118,12 +138,14 @@ public class @InpuCr : IInputActionCollection, IDisposable
     private IKnoxActions m_KnoxActionsCallbackInterface;
     private readonly InputAction m_Knox_Andar;
     private readonly InputAction m_Knox_Correr;
+    private readonly InputAction m_Knox_Atacar;
     public struct KnoxActions
     {
         private @InpuCr m_Wrapper;
         public KnoxActions(@InpuCr wrapper) { m_Wrapper = wrapper; }
         public InputAction @Andar => m_Wrapper.m_Knox_Andar;
         public InputAction @Correr => m_Wrapper.m_Knox_Correr;
+        public InputAction @Atacar => m_Wrapper.m_Knox_Atacar;
         public InputActionMap Get() { return m_Wrapper.m_Knox; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -139,6 +161,9 @@ public class @InpuCr : IInputActionCollection, IDisposable
                 @Correr.started -= m_Wrapper.m_KnoxActionsCallbackInterface.OnCorrer;
                 @Correr.performed -= m_Wrapper.m_KnoxActionsCallbackInterface.OnCorrer;
                 @Correr.canceled -= m_Wrapper.m_KnoxActionsCallbackInterface.OnCorrer;
+                @Atacar.started -= m_Wrapper.m_KnoxActionsCallbackInterface.OnAtacar;
+                @Atacar.performed -= m_Wrapper.m_KnoxActionsCallbackInterface.OnAtacar;
+                @Atacar.canceled -= m_Wrapper.m_KnoxActionsCallbackInterface.OnAtacar;
             }
             m_Wrapper.m_KnoxActionsCallbackInterface = instance;
             if (instance != null)
@@ -149,6 +174,9 @@ public class @InpuCr : IInputActionCollection, IDisposable
                 @Correr.started += instance.OnCorrer;
                 @Correr.performed += instance.OnCorrer;
                 @Correr.canceled += instance.OnCorrer;
+                @Atacar.started += instance.OnAtacar;
+                @Atacar.performed += instance.OnAtacar;
+                @Atacar.canceled += instance.OnAtacar;
             }
         }
     }
@@ -157,5 +185,6 @@ public class @InpuCr : IInputActionCollection, IDisposable
     {
         void OnAndar(InputAction.CallbackContext context);
         void OnCorrer(InputAction.CallbackContext context);
+        void OnAtacar(InputAction.CallbackContext context);
     }
 }
