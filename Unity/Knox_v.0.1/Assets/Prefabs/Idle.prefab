@@ -1131,8 +1131,8 @@ GameObject:
   - component: {fileID: 2959371145649756140}
   - component: {fileID: 9219396976498658710}
   - component: {fileID: 3358406718177669120}
-  - component: {fileID: 3358406718177669123}
-  - component: {fileID: 3358406718177669122}
+  - component: {fileID: 7849222123494743255}
+  - component: {fileID: 3568255431682109304}
   m_Layer: 0
   m_Name: Idle
   m_TagString: Jugador
@@ -1195,19 +1195,7 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.8, z: 0}
---- !u!114 &3358406718177669123
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2475322608704212310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f846d11206d1184494a80b159910dca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3358406718177669122
+--- !u!114 &7849222123494743255
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1217,6 +1205,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dfbe630e4d53f0e4ba19265ca43bc243, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3568255431682109304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2475322608704212310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f846d11206d1184494a80b159910dca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!65 &850722170

@@ -4,13 +4,12 @@ public class Ataque : MonoBehaviour
 {
 
     Controles controles;
-    GameObject player;
     GameObject arma;
-
     Animator animator;
+    CharacterController characterController;
 
     bool atacar = false;
-    bool ataque;
+
 
 
     private void Awake()
@@ -19,7 +18,6 @@ public class Ataque : MonoBehaviour
 
         // Atacar
         controles.Ataque.Atacar.started += ctx => Atacar();
-        //controles.Ataque.Atacar.canceled  += ctx => {ata;
 
     }
 
@@ -28,27 +26,35 @@ public class Ataque : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         arma = GameObject.Find("Arma");
+        characterController = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        SacarArma();
+    }
+
+    public void Atacar()
+    {
+         animator.SetTrigger("Atacar");
+         atacar = false; 
+    }
+
+    void SacarArma()
+    {
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("AtaqueLateral") && !atacar)
         {
             arma.SetActive(true);
+            print("Pongo");
         }
 
         else
         {
             arma.SetActive(false);
             atacar = false;
+            print("Quito");
         }
-    }
-
-    public void Atacar()
-    {
-         animator.SetTrigger("Atacar");
-         atacar = true;
     }
 
     private void OnEnable()

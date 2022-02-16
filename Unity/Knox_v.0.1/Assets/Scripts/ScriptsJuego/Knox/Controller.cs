@@ -65,8 +65,6 @@ public class Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(rodar);
-
         Correr();
         
         Saltar();
@@ -76,7 +74,7 @@ public class Controller : MonoBehaviour
         //ComprobarRodar();
     }
 
-    void ComprobarRodar()
+    /*void ComprobarRodar()
     {
         if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Rodar") && rodar == true)
         {
@@ -84,6 +82,7 @@ public class Controller : MonoBehaviour
             rodar = false;
         }
     }
+    */
 
     void DejarDeRodar()
     {
@@ -128,7 +127,6 @@ public class Controller : MonoBehaviour
                 animator.SetBool("isGrounded", true);
             }
         }
-        
     }
 
     public void Andar()

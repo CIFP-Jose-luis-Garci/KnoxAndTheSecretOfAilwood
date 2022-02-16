@@ -5887,6 +5887,41 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 090b6b964e4bd034abb027ad2df3f105, type: 3}
+--- !u!1 &630693717 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3017923483552772436, guid: c08c5b62631cd444ba578859aafddddb, type: 3}
+  m_PrefabInstance: {fileID: 1595128254}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &630693722
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630693717}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!136 &630693723
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630693717}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.93
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.05, z: 0}
 --- !u!1 &693062892
 GameObject:
   m_ObjectHideFlags: 0
@@ -6032,6 +6067,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 090b6b964e4bd034abb027ad2df3f105, type: 3}
+--- !u!1 &767844881 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2475322609629054432, guid: f1913450f403d5f498521b6babe0dcd5, type: 3}
+  m_PrefabInstance: {fileID: 850722168}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &767844886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767844881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2c57aeee5dab5e488ea3f83e4aabf08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &804231350
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7029,6 +7081,10 @@ PrefabInstance:
       propertyPath: emptyGoal
       value: 
       objectReference: {fileID: 1944218661}
+    - target: {fileID: 3017923483552772436, guid: c08c5b62631cd444ba578859aafddddb, type: 3}
+      propertyPath: m_TagString
+      value: Enemigo
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c08c5b62631cd444ba578859aafddddb, type: 3}
 --- !u!1 &1636320818
