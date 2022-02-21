@@ -27,10 +27,15 @@ public class Controller : MonoBehaviour
     float jumpSpeed = 10f;
     float gravity = 9.8f;
 
+    // Velocidades
     float speed = 20f;
     float rotSpeed = 1f;
 
     Vector3 moveDirection;
+
+    // Vidas
+    StatsKnox statsKnox;
+    public bool live = true;
 
     private void Awake()
     {
@@ -60,17 +65,26 @@ public class Controller : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         cc = GetComponent<CharacterController>();
+        statsKnox = GetComponent<StatsKnox>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        Correr();
-        
-        Saltar();
+        if (statsKnox.lifes >= 1)
+        {
+            Correr();
 
-        Andar();
+            Saltar();
 
+            Andar();
+        }
+
+        else
+        {
+            Muerto();
+        }
         //ComprobarRodar();
     }
 
@@ -185,9 +199,14 @@ public class Controller : MonoBehaviour
         */
     }
 
+    void Muerto()
+    {
+        animator.SetBool("Muerto", true);
+        print("Muerto");
+    }
+
     void Escalada()
     {
-
         print("hOlas");
     }
     
