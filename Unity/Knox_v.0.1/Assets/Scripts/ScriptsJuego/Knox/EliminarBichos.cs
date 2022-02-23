@@ -8,6 +8,8 @@ public class EliminarBichos : MonoBehaviour
     Zumby zumbyLifes;
     Collider colliderArma;
 
+    [SerializeField] ParticleSystem vida;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +35,7 @@ public class EliminarBichos : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Enemigo" || other.gameObject.tag == "Destruible")
+        if (other.gameObject.tag == "Enemigo")
         {
             zumbyLifes.lifes -= 20;
             DesactivarCollider();
@@ -45,6 +47,12 @@ public class EliminarBichos : MonoBehaviour
             {
                 Destroy(other.gameObject);
             }
+        }
+
+        if(other.gameObject.tag == "Destruible")
+        {
+            Destroy(other.gameObject);
+            Instantiate(vida);
         }
     }
 }
