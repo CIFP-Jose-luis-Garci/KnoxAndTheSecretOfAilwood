@@ -116,7 +116,7 @@ public class Controller : MonoBehaviour
     {
         if (running == true && stickL.y > 0f)
         {
-            speed = 4f;
+            speed = 7f;
             animator.SetBool("Run", true);
         }
 
