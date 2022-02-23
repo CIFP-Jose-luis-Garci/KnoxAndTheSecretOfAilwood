@@ -10,6 +10,7 @@ public class EliminarBichos : MonoBehaviour
 
     [SerializeField] GameObject vida;
     [SerializeField] GameObject caja;
+    [SerializeField] GameObject impacto;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +41,7 @@ public class EliminarBichos : MonoBehaviour
         {
             zumbyLifes.lifes -= 20;
             DesactivarCollider();
+            Instantiate(impacto, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
             Invoke("ActivarCollider", 2f);
 
             print(zumbyLifes.lifes);
