@@ -66,13 +66,13 @@ public class Controller : MonoBehaviour
         animator = GetComponent<Animator>();
         cc = GetComponent<CharacterController>();
         statsKnox = GetComponent<StatsKnox>();
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (statsKnox.lifes >= 1)
+        if (statsKnox.lifes >= 1 && live)
         {
             Correr();
 
@@ -81,10 +81,14 @@ public class Controller : MonoBehaviour
             Andar();
         }
 
-        else
+        else if (live)
         {
             Muerto();
+            live = false;
+            Invoke("BoolMuerto", 2.5f);
+            print(live);
         }
+
         //ComprobarRodar();
     }
 
@@ -97,6 +101,11 @@ public class Controller : MonoBehaviour
         }
     }
     */
+
+    void BoolMuerto()
+    {
+        animator.SetBool("Muerto", false);
+    }
 
     void DejarDeRodar()
     {
@@ -121,7 +130,7 @@ public class Controller : MonoBehaviour
 
     void Saltar()
     {
-        
+
         if (cc.isGrounded && rodar == false)
         {
             moveDirection = new Vector3(0, 0, 0); // Para que vaya recto y no cambie la direccion.
@@ -146,7 +155,7 @@ public class Controller : MonoBehaviour
     public void Andar()
     {
         float fwSpeed;
-        if(rodar)
+        if (rodar)
         {
             fwSpeed = 1;
         }
@@ -157,7 +166,7 @@ public class Controller : MonoBehaviour
         }
 
         Vector3 dir = transform.TransformDirection(Vector3.forward); // Darle valor a la direccion donde queramos mover el character controller mas adelante.
-        
+
         cc.SimpleMove(dir * fwSpeed * speed); // Mover el character controller.
         transform.Rotate(0, stickL.x * rotSpeed, 0);
 
@@ -165,20 +174,20 @@ public class Controller : MonoBehaviour
 
         cc.Move(moveDirection * Time.deltaTime);
 
-            if(stickL.y > 0f)
-            {
-                animator.SetFloat("Walk", stickL.y);
-            }
+        if (stickL.y > 0f)
+        {
+            animator.SetFloat("Walk", stickL.y);
+        }
 
-            else if(stickL.y < 0f)
-            {
-                animator.SetFloat("Walk", stickL.y);
-            }
+        else if (stickL.y < 0f)
+        {
+            animator.SetFloat("Walk", stickL.y);
+        }
 
-            else
-            {
-                animator.SetFloat("Walk", stickL.y);
-            }
+        else
+        {
+            animator.SetFloat("Walk", stickL.y);
+        }
     }
 
     void Rodar()
@@ -202,17 +211,16 @@ public class Controller : MonoBehaviour
     void Muerto()
     {
         animator.SetBool("Muerto", true);
-        print("Muerto");
     }
 
     void Escalada()
     {
         print("hOlas");
     }
-    
+
     private void OnCollisionEnter(Collision other)
     {
-        if(other.gameObject.tag == "Escalada")
+        if (other.gameObject.tag == "Escalada")
         {
             Escalada();
         }

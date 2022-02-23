@@ -28,6 +28,9 @@ public class Zumby : MonoBehaviour
     //[SerializeField] AudioClip groar1;
     //AudioSource audioSource;
 
+    //Vidas
+    public int lifes;
+
     //Variables para detectar al jugador
     float visionRange = 10f; //10 metros de visión
     float visionConeAngle = 60f; //60º de angulo de visión
@@ -42,6 +45,7 @@ public class Zumby : MonoBehaviour
 
         //Iniciamos la corrutina que hace que se mueva aleatoriamiente
         StartCoroutine("Ronda");
+        lifes = 60;
     }
 
     // Update is called once per frame

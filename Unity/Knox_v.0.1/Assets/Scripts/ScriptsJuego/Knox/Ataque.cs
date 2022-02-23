@@ -10,7 +10,7 @@ public class Ataque : MonoBehaviour
 
     bool atacar = false;
 
-
+    Collider colliderArma;
 
     private void Awake()
     {
@@ -27,6 +27,7 @@ public class Ataque : MonoBehaviour
         animator = GetComponent<Animator>();
         arma = GameObject.Find("Arma");
         characterController = GetComponent<CharacterController>();
+        colliderArma = GameObject.Find("guja").GetComponent<BoxCollider>();
     }
 
     // Update is called once per frame
@@ -37,8 +38,8 @@ public class Ataque : MonoBehaviour
 
     public void Atacar()
     {
-         animator.SetTrigger("Atacar");
-         atacar = false; 
+        animator.SetTrigger("Atacar");
+        atacar = false;
     }
 
     void SacarArma()
@@ -46,14 +47,12 @@ public class Ataque : MonoBehaviour
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("AtaqueLateral") && !atacar)
         {
             arma.SetActive(true);
-            print("Pongo");
         }
 
         else
         {
             arma.SetActive(false);
             atacar = false;
-            print("Quito");
         }
     }
 

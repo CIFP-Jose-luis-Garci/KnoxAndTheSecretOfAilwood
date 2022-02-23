@@ -20,12 +20,12 @@ public class AtaqueZumby : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Jugador")
+        if (other.gameObject.tag == "Jugador")
         {
             statsKnox.lifes--;
             animator.SetTrigger("Dolor");
