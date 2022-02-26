@@ -5,16 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class BotonesInicio : MonoBehaviour
 {
-    public void NuevaPartida()
-    {
+    [SerializeField] GameObject menuCamera;
+    [SerializeField] GameObject trailCamera;
 
-        SceneManager.LoadScene(1);
+
+    private void Start()
+    {
+        trailCamera.SetActive(false);
+    }
+    public void NuevaPartida()
+    { 
+        trailCamera.SetActive(true);
+        Invoke("InicioJuego", 2f);
 
     }
 
     public void Cargar()
     {
-        SceneManager.LoadScene(1);
+        
+        Invoke("InicioJuego", 2f);
 
     }
 
@@ -34,6 +43,11 @@ public class BotonesInicio : MonoBehaviour
     {
         Application.Quit();
 
+    }
+    public void InicioJuego()
+    {
+        SceneManager.LoadScene(1);
+        MusicScript.inst.Pausar();
     }
 
 }
