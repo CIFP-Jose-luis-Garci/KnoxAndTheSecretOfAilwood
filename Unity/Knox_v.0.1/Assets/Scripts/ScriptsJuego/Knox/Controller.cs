@@ -28,7 +28,7 @@ public class Controller : MonoBehaviour
     float gravity = 9.8f;
 
     // Velocidades
-    float speed = 20f;
+    public float speed;
     float rotSpeed = 1f;
 
     Vector3 moveDirection;
@@ -116,7 +116,7 @@ public class Controller : MonoBehaviour
     {
         if (running == true && stickL.y > 0f)
         {
-            speed = 7f;
+            speed = 4f;
             animator.SetBool("Run", true);
         }
 

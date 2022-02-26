@@ -40,7 +40,7 @@ public class Zumby : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
-
+        survivor = GameObject.Find("Idle").GetComponent<Transform>();
         //audioSource.GetComponent<AudioSource>();
 
         //Iniciamos la corrutina que hace que se mueva aleatoriamiente
@@ -54,7 +54,7 @@ public class Zumby : MonoBehaviour
         //Función que permite detectar al jugador
         Detectar();
 
-        animator.SetFloat("Move", agent.speed);
+        // animator.SetFloat("Move", agent.speed);
 
         //Si me han detectado, cambio la animación
         if (detected)
@@ -81,7 +81,6 @@ public class Zumby : MonoBehaviour
         {
             agent.speed = 0f;
         }
-
         agent.SetDestination(goal);
     }
 
@@ -105,7 +104,7 @@ public class Zumby : MonoBehaviour
 
     void Detectar()
     {
-        //Creamos un Vector3 con la posiciÃ³n del jugador, y otro entre nosotros y Ã©l
+        //Creamos un Vector3 con la posicion del jugador, y otro entre nosotros y el
         Vector3 playerPosition = survivor.position;
         Vector3 vectorToPlayer = playerPosition - transform.position;
 
