@@ -9,18 +9,18 @@ EditorBuildSettings:
     path: Assets/Scenes/Inicio.unity
     guid: b8d9a8df882c60847b191a700fd7924f
   - enabled: 1
-    path: Assets/Scenes/Pruebas.unity
+    path: Assets/Scenes/Juego.unity
     guid: e43bc752ab788da43a4b5536a188f0e7
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Extras.unity
     guid: dad78caacf607564084b919461ce20ff
   - enabled: 1
     path: Assets/Scenes/Ajustes.unity
     guid: 993177cce89e5fc499421f6ec0f49097
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Pausa.unity
     guid: c7a3e0a4e11fb0749a9cd2bc516e473f
-  - enabled: 1
-    path: Assets/Scenes/Juego.unity
+  - enabled: 0
+    path: Assets/Scenes/Pruebas.unity
     guid: e59610ba724443e4c982260b6d2390fa
   m_configObjects: {}
