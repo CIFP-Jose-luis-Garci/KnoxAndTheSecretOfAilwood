@@ -29,7 +29,7 @@ public class Zumby : MonoBehaviour
     //AudioSource audioSource;
 
     //Vidas
-    public int lifes;
+    public int lifes = 60;
 
     //Variables para detectar al jugador
     float visionRange = 10f; //10 metros de visión
