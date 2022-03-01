@@ -121,7 +121,8 @@ public class Zumby : MonoBehaviour
                 print("Me han pillado");
                 detected = true;
                 pillado = true;
-                animator.SetBool("Ataque", true);
+                animator.SetTrigger("Ataque");
+                animator.SetBool("Move", false);
                 StopCoroutine("Ronda");
             }
         }
@@ -132,7 +133,7 @@ public class Zumby : MonoBehaviour
             {
                 detected = false;
                 pillado = false;
-                animator.SetBool("Ataque", false);
+                animator.SetBool("Move", true);
                 StartCoroutine("Ronda");
             }
         }
