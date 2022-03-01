@@ -16,7 +16,7 @@ EditorBuildSettings:
     guid: dad78caacf607564084b919461ce20ff
   - enabled: 1
     path: Assets/Scenes/Ajustes.unity
-    guid: 93fbd5202dbd3d6468a6a6ae27d9b7fd
+    guid: 993177cce89e5fc499421f6ec0f49097
   - enabled: 1
     path: Assets/Scenes/Pausa.unity
     guid: c7a3e0a4e11fb0749a9cd2bc516e473f
