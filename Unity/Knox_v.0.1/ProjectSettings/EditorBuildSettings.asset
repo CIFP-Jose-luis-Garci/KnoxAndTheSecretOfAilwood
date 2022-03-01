@@ -13,10 +13,10 @@ EditorBuildSettings:
     guid: e59610ba724443e4c982260b6d2390fa
   - enabled: 1
     path: Assets/Scenes/Extras.unity
-    guid: 9abbf5ef01672c84ca173df79c8b3377
+    guid: dad78caacf607564084b919461ce20ff
   - enabled: 1
     path: Assets/Scenes/Ajustes.unity
-    guid: 23615a6e6f35b5e48ad2f5827d1b7ec7
+    guid: 93fbd5202dbd3d6468a6a6ae27d9b7fd
   - enabled: 1
     path: Assets/Scenes/Pausa.unity
     guid: c7a3e0a4e11fb0749a9cd2bc516e473f

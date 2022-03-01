@@ -26,6 +26,9 @@ TextureImporter:
   - first:
       213: 2253975325488263604
     second: ui knox_7
+  - first:
+      213: 7938265357796789390
+    second: ui knox_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -290,6 +293,27 @@ TextureImporter:
       bones: []
       spriteID: 4b13930dd9ab74f10800000000000000
       internalID: 2253975325488263604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui knox_8
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 4364
+        width: 576
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8c4440c8426a2e60800000000000000
+      internalID: 7938265357796789390
       vertices: []
       indices: 
       edges: []

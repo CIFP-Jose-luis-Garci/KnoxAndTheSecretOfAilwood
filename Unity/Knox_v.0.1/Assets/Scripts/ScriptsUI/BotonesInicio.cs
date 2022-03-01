@@ -44,6 +44,13 @@ public class BotonesInicio : MonoBehaviour
         Application.Quit();
 
     }
+
+    public void MenuInicio()
+    {
+        SceneManager.LoadScene(0);
+
+    }
+
     public void InicioJuego()
     {
         SceneManager.LoadScene(1);
