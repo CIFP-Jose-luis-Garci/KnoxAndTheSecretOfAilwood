@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class BotonesPausa : MonoBehaviour
 {
+    public static bool gamePaused = false;
+    public GameObject UIPause;
+    public GameObject UIOptions;
     public void Reanudar()
     {
 
@@ -32,4 +35,34 @@ public class BotonesPausa : MonoBehaviour
         SceneManager.LoadScene(0);
 
     }
+    void Update()
+    {
+        if (gamePaused)
+        {
+            if (gamePaused)
+            {
+                Resume();
+
+            }
+            else
+            {
+                Pause();
+            }
+        }
+    }
+
+    void Resume()
+    {
+        UIPause.SetActive(false);
+        Time.timeScale = 1f;
+        gamePaused = false;
+    }
+    void Pause()
+    {
+        UIPause.SetActive(true);
+        Time.timeScale = 0f;
+        gamePaused = true;
+    }
+
+
 }
