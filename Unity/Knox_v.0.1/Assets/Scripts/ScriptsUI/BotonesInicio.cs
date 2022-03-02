@@ -3,22 +3,33 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using UnityEngine.EventSystems;
 
 public class BotonesInicio : MonoBehaviour
 {
     [SerializeField] GameObject menuCamera;
     [SerializeField] GameObject trailCamera;
     public AudioMixer audioMixer;
+    //PanelesMenu
+    public GameObject UIPause;
+    public GameObject UIOptions;
+    public GameObject botonSelectMenu, botonSelectOptions;
 
 
     private void Start()
     {
         trailCamera.SetActive(false);
         gameObject.SetActive(true);
+        UIPause.SetActive(true);       
+        UIOptions.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(botonSelectMenu);
     }
     public void MenuInicio()
     {
-        SceneManager.LoadScene(0);
+        UIPause.SetActive(true);
+        UIOptions.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(botonSelectMenu);
 
     }
     public void Partida()
@@ -31,13 +42,16 @@ public class BotonesInicio : MonoBehaviour
 
     public void Extras()
     {
-        SceneManager.LoadScene(2);
+        //SceneManager.LoadScene(2);
 
     }
 
     public void Ajustes()
     {
-        SceneManager.LoadScene(3);
+        UIPause.SetActive(false);
+        UIOptions.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(botonSelectOptions);
 
     }
 

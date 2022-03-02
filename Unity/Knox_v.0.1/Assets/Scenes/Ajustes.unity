@@ -840,10 +840,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8309912845487689054, guid: 04946f20a862657478d3145be28eaf7d, type: 3}
-      propertyPath: audioMixer
-      value: 
-      objectReference: {fileID: 24100000, guid: 503df6176b5a6f349b79ba1da5690f32, type: 2}
     - target: {fileID: 8309912846177710573, guid: 04946f20a862657478d3145be28eaf7d, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
