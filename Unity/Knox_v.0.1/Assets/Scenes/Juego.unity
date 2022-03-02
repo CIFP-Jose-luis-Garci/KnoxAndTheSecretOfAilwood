@@ -1344,6 +1344,7 @@ Transform:
   m_PrefabInstance: {fileID: 32626452}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1001 &86420860
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1419,6 +1420,8 @@ Transform:
   m_PrefabInstance: {fileID: 86420860}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< Updated upstream
+=======
+>>>>>>> parent of 45570ed (Añadido pack de rocas)
 =======
 >>>>>>> parent of 45570ed (Añadido pack de rocas)
 --- !u!1 &87392110
@@ -16230,6 +16233,8 @@ Transform:
   m_PrefabInstance: {fileID: 1062369574}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1074127655
+<<<<<<< HEAD
+=======
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -16287,6 +16292,7 @@ PrefabInstance:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edec04221354c1341a6f8b20532c9efe, type: 3}
 --- !u!1001 &1074143232
+>>>>>>> parent of 45570ed (Añadido pack de rocas)
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
