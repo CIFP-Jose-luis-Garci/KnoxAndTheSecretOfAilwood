@@ -5,7 +5,7 @@ using UnityEngine;
 public class Controller : MonoBehaviour
 {
     Controles controles;
-
+    BotonesPausa bP;
     Animator animator;
 
     //Variable del joystick izquierdo
@@ -27,6 +27,9 @@ public class Controller : MonoBehaviour
     bool saltar;
     float jumpSpeed = 10f;
     float gravity = 9.8f;
+
+    //BotonStart
+    public bool startBtt;
 
     // Velocidades
     public float speed;
@@ -59,7 +62,14 @@ public class Controller : MonoBehaviour
         //Saltar
         controles.Moverse.Saltar.started += ctx => saltar = ctx.ReadValueAsButton();
         controles.Moverse.Saltar.canceled += ctx => saltar = ctx.ReadValueAsButton();
+
+        //Boton Pause
+        bP = GameObject.Find("UI").GetComponent<BotonesPausa>();
+        controles.UI.Start.performed += _ => bP.PauseScreen();
+        
+
     }
+    
 
     // Start is called before the first frame update
     void Start()
