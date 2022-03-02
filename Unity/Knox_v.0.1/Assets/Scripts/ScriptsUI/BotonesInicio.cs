@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+<<<<<<< Updated upstream
 using UnityEngine.EventSystems;
 
 public class BotonesInicio : MonoBehaviour
@@ -15,6 +16,33 @@ public class BotonesInicio : MonoBehaviour
     public GameObject UIOptions;
     public GameObject botonSelectMenu, botonSelectOptions;
 
+=======
+
+
+public class BotonesInicio : MonoBehaviour
+{
+    [SerializeField] GameObject cameraTrail;
+    [SerializeField] GameObject menuCamera;
+    public AudioMixer audioMixer;
+
+    private void Start()
+    {
+        menuCamera.SetActive(true);
+        cameraTrail.SetActive(false);
+    }
+
+    public void Inicio()
+    {
+
+        SceneManager.LoadScene(0);
+        
+    }
+    public void NuevaPartida()
+    {
+        cameraTrail.SetActive(true);
+        gameObject.SetActive(false);
+        Invoke("EscenaJuego", 2f);
+>>>>>>> Stashed changes
 
     private void Start()
     {
@@ -26,6 +54,7 @@ public class BotonesInicio : MonoBehaviour
     }
     public void MenuInicio()
     {
+<<<<<<< Updated upstream
         UIPause.SetActive(true);
         UIOptions.SetActive(false);
         EventSystem.current.SetSelectedGameObject(null);
@@ -38,6 +67,11 @@ public class BotonesInicio : MonoBehaviour
         gameObject.SetActive(false);
         Invoke("InicioJuego", 2f);
 
+=======
+        cameraTrail.SetActive(true);
+        Invoke("EscenaJuego", 2f);
+        
+>>>>>>> Stashed changes
     }
 
     public void Extras()
@@ -59,6 +93,23 @@ public class BotonesInicio : MonoBehaviour
     {
         Application.Quit();
 
+    }
+    public void SetVolumeMaster(float volumeMaster)
+    {
+        audioMixer.SetFloat("VolumeMaster", Mathf.Log10(volumeMaster) * 20);
+    }
+    public void SetVolumeMusic(float volumeMusic)
+    {
+        audioMixer.SetFloat("VolumeMusic", Mathf.Log10(volumeMusic) * 20);
+    }
+    public void SetVolumeEffects(float volumeEffects)
+    {
+        audioMixer.SetFloat("VolumeEffects", Mathf.Log10(volumeEffects) * 20);
+    }
+    public void EscenaJuego()
+    {
+        SceneManager.LoadScene(1);
+        MusicScript.inst.Pausar();
     }
 
     public void InicioJuego()
