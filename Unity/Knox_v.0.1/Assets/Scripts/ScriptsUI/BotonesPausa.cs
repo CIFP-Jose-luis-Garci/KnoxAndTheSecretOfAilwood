@@ -7,7 +7,18 @@ public class BotonesPausa : MonoBehaviour
 {
     public static bool gamePaused = false;
     public GameObject UIPause;
+    public GameObject UIPanel;
     public GameObject UIOptions;
+    
+
+    
+
+    private void Start()
+    {
+        
+        
+    }
+
     public void Reanudar()
     {
 
@@ -36,33 +47,41 @@ public class BotonesPausa : MonoBehaviour
 
     }
     void Update()
-    {
-        if (gamePaused)
-        {
-            if (gamePaused)
-            {
-                Resume();
-
-            }
-            else
-            {
-                Pause();
-            }
-        }
+    { 
+           
+        
     }
 
     void Resume()
     {
         UIPause.SetActive(false);
+        UIPanel.SetActive(false);
         Time.timeScale = 1f;
         gamePaused = false;
+        
     }
     void Pause()
     {
         UIPause.SetActive(true);
+        UIPanel.SetActive(true);
         Time.timeScale = 0f;
         gamePaused = true;
+        
     }
+    public void PauseScreen()
+    {
+        if (gamePaused)
+        {
+            Resume();
+
+        }
+        else
+        {
+            Pause();
+        }
+    }
+    
+    
 
 
 }

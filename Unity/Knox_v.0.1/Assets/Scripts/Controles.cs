@@ -157,7 +157,7 @@ public class @Controles : IInputActionCollection, IDisposable
             ""id"": ""7f6e6124-c8a4-48ac-91bb-ee36429d32cc"",
             ""actions"": [
                 {
-                    ""name"": ""Boton"",
+                    ""name"": ""Start"",
                     ""type"": ""Button"",
                     ""id"": ""2c542202-24dc-40f4-b3da-48617264b787"",
                     ""expectedControlType"": ""Button"",
@@ -169,11 +169,11 @@ public class @Controles : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""9ea82129-6941-4283-a16b-1d9f8cedc274"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Boton"",
+                    ""action"": ""Start"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -196,7 +196,7 @@ public class @Controles : IInputActionCollection, IDisposable
         m_Ataque_Atacar = m_Ataque.FindAction("Atacar", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
-        m_UI_Boton = m_UI.FindAction("Boton", throwIfNotFound: true);
+        m_UI_Start = m_UI.FindAction("Start", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -369,12 +369,12 @@ public class @Controles : IInputActionCollection, IDisposable
     // UI
     private readonly InputActionMap m_UI;
     private IUIActions m_UIActionsCallbackInterface;
-    private readonly InputAction m_UI_Boton;
+    private readonly InputAction m_UI_Start;
     public struct UIActions
     {
         private @Controles m_Wrapper;
         public UIActions(@Controles wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Boton => m_Wrapper.m_UI_Boton;
+        public InputAction @Start => m_Wrapper.m_UI_Start;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -384,16 +384,16 @@ public class @Controles : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_UIActionsCallbackInterface != null)
             {
-                @Boton.started -= m_Wrapper.m_UIActionsCallbackInterface.OnBoton;
-                @Boton.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnBoton;
-                @Boton.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnBoton;
+                @Start.started -= m_Wrapper.m_UIActionsCallbackInterface.OnStart;
+                @Start.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnStart;
+                @Start.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnStart;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Boton.started += instance.OnBoton;
-                @Boton.performed += instance.OnBoton;
-                @Boton.canceled += instance.OnBoton;
+                @Start.started += instance.OnStart;
+                @Start.performed += instance.OnStart;
+                @Start.canceled += instance.OnStart;
             }
         }
     }
@@ -415,6 +415,6 @@ public class @Controles : IInputActionCollection, IDisposable
     }
     public interface IUIActions
     {
-        void OnBoton(InputAction.CallbackContext context);
+        void OnStart(InputAction.CallbackContext context);
     }
 }
