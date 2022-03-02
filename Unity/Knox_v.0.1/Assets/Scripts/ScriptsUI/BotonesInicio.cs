@@ -29,8 +29,6 @@ public class BotonesInicio : MonoBehaviour
 
     }
 
-    
-
     public void Extras()
     {
         SceneManager.LoadScene(2);
@@ -59,13 +57,14 @@ public class BotonesInicio : MonoBehaviour
     {
         audioMixer.SetFloat("volumeMaster", Mathf.Log10(volumeMaster) * 20);
     }
+
     public void SetVolumeMusic(float volumeMusic)
     {
         audioMixer.SetFloat("volumeMusic", Mathf.Log10(volumeMusic) * 20);
     }
+
     public void SetVolumeEffects(float volumeEffects)
     {
         audioMixer.SetFloat("volumeEffects", Mathf.Log10(volumeEffects) * 20);
     }
-
 }

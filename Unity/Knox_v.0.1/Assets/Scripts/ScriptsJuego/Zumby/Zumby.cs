@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public class Zumby : MonoBehaviour
 {
-    //Variables para el FSM
     Vector3 goal; //Hacia donde se dirigirá
 
     //Necesito saber en todo momento mi distancia al objetivo

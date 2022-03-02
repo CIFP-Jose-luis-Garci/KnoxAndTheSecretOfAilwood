@@ -11,12 +11,15 @@ public class EliminarBichos : MonoBehaviour
     [SerializeField] GameObject vida;
     [SerializeField] GameObject caja;
     [SerializeField] GameObject impacto;
+    [SerializeField] GameObject estela;
+    [SerializeField] Rigidbody zumbyRigid;
 
     // Start is called before the first frame update
     void Start()
     {
         zumbyLifes = GameObject.Find("Body").GetComponent<Zumby>();
         colliderArma = GameObject.Find("guja").GetComponent<BoxCollider>();
+        // zumbyRigid = GameObject.Find("Body").GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -40,8 +43,10 @@ public class EliminarBichos : MonoBehaviour
         if (other.gameObject.tag == "Enemigo")
         {
             zumbyLifes.lifes -= 20;
+            // zumbyRigid.AddForce(0, 1, 0);
             DesactivarCollider();
             Instantiate(impacto, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+            
             Invoke("ActivarCollider", 2f);
 
             print(zumbyLifes.lifes);

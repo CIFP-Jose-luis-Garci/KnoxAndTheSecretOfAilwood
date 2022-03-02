@@ -151,6 +151,33 @@ public class @Controles : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""UI"",
+            ""id"": ""7f6e6124-c8a4-48ac-91bb-ee36429d32cc"",
+            ""actions"": [
+                {
+                    ""name"": ""Boton"",
+                    ""type"": ""Button"",
+                    ""id"": ""2c542202-24dc-40f4-b3da-48617264b787"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""9ea82129-6941-4283-a16b-1d9f8cedc274"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Boton"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -167,6 +194,9 @@ public class @Controles : IInputActionCollection, IDisposable
         // Ataque
         m_Ataque = asset.FindActionMap("Ataque", throwIfNotFound: true);
         m_Ataque_Atacar = m_Ataque.FindAction("Atacar", throwIfNotFound: true);
+        // UI
+        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
+        m_UI_Boton = m_UI.FindAction("Boton", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -335,6 +365,39 @@ public class @Controles : IInputActionCollection, IDisposable
         }
     }
     public AtaqueActions @Ataque => new AtaqueActions(this);
+
+    // UI
+    private readonly InputActionMap m_UI;
+    private IUIActions m_UIActionsCallbackInterface;
+    private readonly InputAction m_UI_Boton;
+    public struct UIActions
+    {
+        private @Controles m_Wrapper;
+        public UIActions(@Controles wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Boton => m_Wrapper.m_UI_Boton;
+        public InputActionMap Get() { return m_Wrapper.m_UI; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
+        public void SetCallbacks(IUIActions instance)
+        {
+            if (m_Wrapper.m_UIActionsCallbackInterface != null)
+            {
+                @Boton.started -= m_Wrapper.m_UIActionsCallbackInterface.OnBoton;
+                @Boton.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnBoton;
+                @Boton.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnBoton;
+            }
+            m_Wrapper.m_UIActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Boton.started += instance.OnBoton;
+                @Boton.performed += instance.OnBoton;
+                @Boton.canceled += instance.OnBoton;
+            }
+        }
+    }
+    public UIActions @UI => new UIActions(this);
     public interface IMoverseActions
     {
         void OnMover(InputAction.CallbackContext context);
@@ -349,5 +412,9 @@ public class @Controles : IInputActionCollection, IDisposable
     public interface IAtaqueActions
     {
         void OnAtacar(InputAction.CallbackContext context);
+    }
+    public interface IUIActions
+    {
+        void OnBoton(InputAction.CallbackContext context);
     }
 }
