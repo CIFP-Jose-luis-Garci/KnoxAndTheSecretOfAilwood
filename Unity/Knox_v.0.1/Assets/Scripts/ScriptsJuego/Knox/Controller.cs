@@ -83,7 +83,7 @@ public class Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (statsKnox.lifes >= 1 && live)
+        if (statsKnox.lifes >= 1 && live && Time.timeScale == 1f)
         {
             Correr();
 
@@ -92,7 +92,7 @@ public class Controller : MonoBehaviour
             Andar();
         }
 
-        else if (live)
+        else if (live && Time.timeScale == 1f)
         {
             Muerto();
             live = false;
@@ -150,7 +150,7 @@ public class Controller : MonoBehaviour
             moveDirection = transform.TransformDirection(moveDirection);
             moveDirection *= speed;
 
-            if (saltar == true)
+            if (saltar == true && bP.gamePaused == false)
             {
                 animator.SetBool("Saltar", true);
                 animator.SetBool("isGrounded", false);
@@ -166,7 +166,7 @@ public class Controller : MonoBehaviour
     }
 
     public void Andar()
-    {
+    {  
         float fwSpeed;
         if (rodar)
         {
@@ -181,7 +181,7 @@ public class Controller : MonoBehaviour
         Vector3 dir = transform.TransformDirection(Vector3.forward); // Darle valor a la direccion donde queramos mover el character controller mas adelante.
 
         cc.SimpleMove(dir * fwSpeed * speed); // Mover el character controller.
-        transform.Rotate(0, stickL.x * rotSpeed, 0);
+        transform.Rotate(0, stickL.x * rotSpeed , 0 );
 
         moveDirection.y -= gravity * Time.deltaTime;
 

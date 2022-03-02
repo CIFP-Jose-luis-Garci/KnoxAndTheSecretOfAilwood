@@ -220,7 +220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menuCamera: {fileID: 0}
   trailCamera: {fileID: 0}
-  audioMixer: {fileID: 0}
+  audioMixer: {fileID: 24100000, guid: 503df6176b5a6f349b79ba1da5690f32, type: 2}
 --- !u!1 &8309912845519694232
 GameObject:
   m_ObjectHideFlags: 0

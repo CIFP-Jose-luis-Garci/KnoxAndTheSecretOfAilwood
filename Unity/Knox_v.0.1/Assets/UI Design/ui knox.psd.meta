@@ -135,7 +135,7 @@ TextureImporter:
         serializedVersion: 2
         x: 24
         y: 4364
-        width: 600
+        width: 598
         height: 96
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -303,7 +303,11 @@ TextureImporter:
         serializedVersion: 2
         x: 24
         y: 4364
+<<<<<<< Updated upstream
         width: 576
+=======
+        width: 577
+>>>>>>> Stashed changes
         height: 96
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
