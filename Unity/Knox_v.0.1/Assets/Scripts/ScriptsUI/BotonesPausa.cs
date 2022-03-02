@@ -2,70 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
+
 
 public class BotonesPausa : MonoBehaviour
 {
-    public static bool gamePaused = false;
+    public bool gamePaused = false;
     public GameObject UIPause;
     public GameObject UIPanel;
     public GameObject UIOptions;
+    public GameObject botonSelectMenu, botonSelectOptions;
     
 
     
 
     private void Start()
     {
-        
-        
-    }
-
-    public void Reanudar()
-    {
-
-        SceneManager.LoadScene(1);
+        UIPause.SetActive(false);
+        UIPanel.SetActive(false);
+        UIOptions.SetActive(false);
 
     }
 
-    public void Guardar()
-    {
 
+    public void MenuInicio()
+    {
         SceneManager.LoadScene(0);
-
-    }
-
-    public void Ajustes()
-    {
-
-        SceneManager.LoadScene(3);
-
-    }
-
-    public void Inicio()
-    {
-
-        SceneManager.LoadScene(0);
-
+        Time.timeScale = 1f;
     }
     void Update()
     { 
            
-        
-    }
-
-    void Resume()
-    {
-        UIPause.SetActive(false);
-        UIPanel.SetActive(false);
-        Time.timeScale = 1f;
-        gamePaused = false;
-        
-    }
-    void Pause()
-    {
-        UIPause.SetActive(true);
-        UIPanel.SetActive(true);
-        Time.timeScale = 0f;
-        gamePaused = true;
         
     }
     public void PauseScreen()
@@ -80,8 +47,41 @@ public class BotonesPausa : MonoBehaviour
             Pause();
         }
     }
-    
-    
 
+    public void Resume()
+    {
+        UIPause.SetActive(false);
+        UIPanel.SetActive(false);
+        Time.timeScale = 1f;
+        gamePaused = false;
+               
+
+    }
+    void Pause()
+    {
+        UIPause.SetActive(true);
+        UIPanel.SetActive(true);
+        Time.timeScale = 0f;
+        gamePaused = true;       
+        EventSystem.current.SetSelectedGameObject(botonSelectMenu);
+
+    }
+
+    public void MenuOptions()
+    {
+        UIPause.SetActive(false);
+        UIOptions.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(botonSelectOptions);
+    }
+    public void VolverMenu()
+    {
+        UIPause.SetActive(true);
+        UIOptions.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(botonSelectMenu);
+
+    }
+    
 
 }

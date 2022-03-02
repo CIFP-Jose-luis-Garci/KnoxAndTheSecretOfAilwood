@@ -64,8 +64,8 @@ public class Controller : MonoBehaviour
         controles.Moverse.Saltar.canceled += ctx => saltar = ctx.ReadValueAsButton();
 
         //Boton Pause
-        // bP = GameObject.Find("UI").GetComponent<BotonesPausa>();
-        // controles.UI.Start.performed += _ => bP.PauseScreen();
+         bP = GameObject.Find("UI").GetComponent<BotonesPausa>();
+         controles.UI.Start.performed += _ => bP.PauseScreen();
         
     }
     
@@ -82,7 +82,7 @@ public class Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (statsKnox.lifes >= 1 && live)
+        if (statsKnox.lifes >= 1 && live && bP.gamePaused == false)
         {
             Correr();
 
@@ -91,7 +91,7 @@ public class Controller : MonoBehaviour
             Andar();
         }
 
-        else if (live)
+        else if (live && bP.gamePaused == false)
         {
             Muerto();
             live = false;
@@ -163,6 +163,7 @@ public class Controller : MonoBehaviour
             }
         }
     }
+
 
     public void Andar()
     {
