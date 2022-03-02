@@ -64,10 +64,9 @@ public class Controller : MonoBehaviour
         controles.Moverse.Saltar.canceled += ctx => saltar = ctx.ReadValueAsButton();
 
         //Boton Pause
-        bP = GameObject.Find("UI").GetComponent<BotonesPausa>();
-        controles.UI.Start.performed += _ => bP.PauseScreen();
+        // bP = GameObject.Find("UI").GetComponent<BotonesPausa>();
+        // controles.UI.Start.performed += _ => bP.PauseScreen();
         
-
     }
     
 
