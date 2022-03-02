@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Controller : MonoBehaviour
 {
@@ -94,9 +95,7 @@ public class Controller : MonoBehaviour
         else if (live && bP.gamePaused == false)
         {
             Muerto();
-            live = false;
-            Invoke("BoolMuerto", 2.5f);
-            print(live);
+            
         }
 
         //ComprobarRodar();
@@ -224,6 +223,15 @@ public class Controller : MonoBehaviour
     void Muerto()
     {
         animator.SetBool("Muerto", true);
+        live = false;
+        Invoke("BoolMuerto", 2.5f);
+        print(live);
+        Invoke("Reiniciar", 3f);
+    }
+
+    void Reiniciar()
+    {
+        SceneManager.LoadScene(1);
     }
 
     void Escalada()
@@ -236,6 +244,14 @@ public class Controller : MonoBehaviour
         if (other.gameObject.tag == "Escalada")
         {
             Escalada();
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Agua")
+        {
+            Muerto();
         }
     }
 
