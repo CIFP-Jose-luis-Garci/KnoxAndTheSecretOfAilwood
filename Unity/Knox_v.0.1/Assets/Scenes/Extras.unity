@@ -301,7 +301,11 @@ RectTransform:
   - {fileID: 1595205889}
   m_Father: {fileID: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_RootOrder: 5
+=======
+  m_RootOrder: 4
+>>>>>>> Stashed changes
 =======
   m_RootOrder: 4
 >>>>>>> Stashed changes
@@ -324,8 +328,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   menuCamera: {fileID: 1199733367}
   trailCamera: {fileID: 856522861}
+=======
+  cameraTrail: {fileID: 856522861}
+  menuCamera: {fileID: 1199733367}
+>>>>>>> Stashed changes
 =======
   cameraTrail: {fileID: 856522861}
   menuCamera: {fileID: 1199733367}
@@ -503,7 +512,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_RootOrder: 4
+=======
+  m_RootOrder: 3
+>>>>>>> Stashed changes
 =======
   m_RootOrder: 3
 >>>>>>> Stashed changes
@@ -786,7 +799,11 @@ Transform:
   - {fileID: 1934607282}
   m_Father: {fileID: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_RootOrder: 3
+=======
+  m_RootOrder: 2
+>>>>>>> Stashed changes
 =======
   m_RootOrder: 2
 >>>>>>> Stashed changes
@@ -1281,7 +1298,11 @@ Transform:
   - {fileID: 1432371153}
   m_Father: {fileID: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_RootOrder: 2
+=======
+  m_RootOrder: 1
+>>>>>>> Stashed changes
 =======
   m_RootOrder: 1
 >>>>>>> Stashed changes
@@ -1358,6 +1379,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1500,6 +1522,9 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+=======
+  m_RootOrder: 5
+>>>>>>> Stashed changes
 =======
   m_RootOrder: 5
 >>>>>>> Stashed changes
@@ -2027,7 +2052,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_RootOrder: 1
+=======
+  m_RootOrder: 0
+>>>>>>> Stashed changes
 =======
   m_RootOrder: 0
 >>>>>>> Stashed changes
@@ -14967,7 +14996,11 @@ Transform:
   - {fileID: 1970660565}
   m_Father: {fileID: 0}
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   m_RootOrder: 7
+=======
+  m_RootOrder: 6
+>>>>>>> Stashed changes
 =======
   m_RootOrder: 6
 >>>>>>> Stashed changes

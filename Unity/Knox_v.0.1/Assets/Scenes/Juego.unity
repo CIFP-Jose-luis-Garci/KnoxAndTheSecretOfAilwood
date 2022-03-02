@@ -1365,7 +1365,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1061198254457627763, guid: 3ba64c548256707439e713553b200b78, type: 3}
   m_PrefabInstance: {fileID: 1251472624}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< Updated upstream
 --- !u!1 &79219804
+=======
+  m_GameObject: {fileID: 1867688851}
+  m_LocalRotation: {x: 0.09383334, y: -0.0000000042826156, z: 4.0363296e-10, w: 0.99558794}
+  m_LocalPosition: {x: 181.1, y: 6.17, z: -5.73}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1935268551
+>>>>>>> Stashed changes
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -14,12 +14,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Extras.unity
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     guid: dad78caacf607564084b919461ce20ff
   - enabled: 1
     path: Assets/Scenes/Ajustes.unity
     guid: 993177cce89e5fc499421f6ec0f49097
 =======
     guid: e5c078bf81e0ed54f80be0a26a74a0b6
+=======
+    guid: e5c078bf81e0ed54f80be0a26a74a0b6
+  - enabled: 1
+    path: Assets/Scenes/Ajustes.unity
+    guid: e0381d6f966a9954a95cdc11d310c2f1
+>>>>>>> Stashed changes
   - enabled: 1
     path: Assets/Scenes/Ajustes.unity
     guid: e0381d6f966a9954a95cdc11d310c2f1
