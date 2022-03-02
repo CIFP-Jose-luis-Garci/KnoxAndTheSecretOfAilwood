@@ -29,7 +29,7 @@ public class Zumby : MonoBehaviour
     //AudioSource audioSource;
 
     //Vidas
-    public int lifes;
+    public int lifes = 60;
 
     //Variables para detectar al jugador
     float visionRange = 10f; //10 metros de visión
@@ -121,7 +121,8 @@ public class Zumby : MonoBehaviour
                 print("Me han pillado");
                 detected = true;
                 pillado = true;
-                animator.SetBool("Ataque", true);
+                animator.SetTrigger("Ataque");
+                animator.SetBool("Move", false);
                 StopCoroutine("Ronda");
             }
         }
@@ -132,7 +133,7 @@ public class Zumby : MonoBehaviour
             {
                 detected = false;
                 pillado = false;
-                animator.SetBool("Ataque", false);
+                animator.SetBool("Move", true);
                 StartCoroutine("Ronda");
             }
         }

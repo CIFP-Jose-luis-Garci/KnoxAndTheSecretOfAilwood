@@ -7,6 +7,7 @@ public class Ataque : MonoBehaviour
     GameObject arma;
     Animator animator;
     CharacterController characterController;
+    Controller controller;
 
     bool atacar = false;
 
@@ -18,7 +19,6 @@ public class Ataque : MonoBehaviour
 
         // Atacar
         controles.Ataque.Atacar.started += ctx => Atacar();
-
     }
 
     // Start is called before the first frame update
@@ -28,6 +28,7 @@ public class Ataque : MonoBehaviour
         arma = GameObject.Find("Arma");
         characterController = GetComponent<CharacterController>();
         colliderArma = GameObject.Find("guja").GetComponent<BoxCollider>();
+        controller = GameObject.Find("Idle").GetComponent<Controller>();
     }
 
     // Update is called once per frame
@@ -38,19 +39,26 @@ public class Ataque : MonoBehaviour
 
     public void Atacar()
     {
-        animator.SetTrigger("Atacar");
-        atacar = false;
+        if (controller.run == false)
+        {
+            animator.SetTrigger("Atacar");
+            atacar = false;
+        }
     }
 
     void SacarArma()
     {
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("AtaqueLateral") && !atacar)
+        if (controller.run == false)
         {
-            arma.SetActive(true);
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("AtaqueLateral") && !atacar)
+            {
+                arma.SetActive(true);
+            }
         }
 
-        else
+        else if (controller.run == true || controller.stickL.y != 0f)
         {
+            print(controller.stickL.y);
             arma.SetActive(false);
             atacar = false;
         }

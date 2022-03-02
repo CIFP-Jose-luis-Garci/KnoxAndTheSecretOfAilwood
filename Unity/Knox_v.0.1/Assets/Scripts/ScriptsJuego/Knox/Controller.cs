@@ -9,8 +9,9 @@ public class Controller : MonoBehaviour
     Animator animator;
 
     //Variable del joystick izquierdo
-    Vector2 stickL;
+    public Vector2 stickL;
     bool running;
+    public bool run;
 
     //bool strafing;
     float triggerR;
@@ -116,8 +117,9 @@ public class Controller : MonoBehaviour
     {
         if (running == true && stickL.y > 0f)
         {
-            speed = 4f;
+            speed = 10f;
             animator.SetBool("Run", true);
+            run = true;
         }
 
         else
@@ -125,6 +127,7 @@ public class Controller : MonoBehaviour
             speed = 1.5f;
             animator.SetFloat("Walk", stickL.y);
             animator.SetBool("Run", false);
+            run = false;
         }
     }
 
