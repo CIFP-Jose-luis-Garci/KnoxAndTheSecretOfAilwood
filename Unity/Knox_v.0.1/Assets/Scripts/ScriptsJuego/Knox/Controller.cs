@@ -34,8 +34,7 @@ public class Controller : MonoBehaviour
 
     // Velocidades
     public float speed;
-    float rotSpeed = 2.5f;
-    float moove = 1f;
+    float rotSpeed = 1f;
 
     Vector3 moveDirection;
 
@@ -68,7 +67,9 @@ public class Controller : MonoBehaviour
         //Boton Pause
          bP = GameObject.Find("UI").GetComponent<BotonesPausa>();
          controles.UI.Start.performed += _ => bP.PauseScreen();
+        
     }
+    
 
     // Start is called before the first frame update
     void Start()
@@ -76,6 +77,7 @@ public class Controller : MonoBehaviour
         animator = GetComponent<Animator>();
         cc = GetComponent<CharacterController>();
         statsKnox = GetComponent<StatsKnox>();
+
     }
 
     // Update is called once per frame
@@ -95,6 +97,7 @@ public class Controller : MonoBehaviour
             Muerto();
             
         }
+
         //ComprobarRodar();
     }
 
@@ -112,12 +115,17 @@ public class Controller : MonoBehaviour
     {
         animator.SetBool("Muerto", false);
     }
-     
+
+    void DejarDeRodar()
+    {
+        rodar = false;
+    }
+
     void Correr()
     {
         if (running == true && stickL.y > 0f)
         {
-            speed = 5f;
+            speed = 10f;
             animator.SetBool("Run", true);
             run = true;
         }
@@ -155,15 +163,11 @@ public class Controller : MonoBehaviour
         }
     }
 
+
     public void Andar()
     {
-        float fwSpeed = stickL.y;
+        float fwSpeed;
         if (rodar)
-        {
-            fwSpeed = 1;
-        }
-
-        else if(fwSpeed < 0.9f && fwSpeed > 0.1f)
         {
             fwSpeed = 1;
         }
@@ -206,12 +210,7 @@ public class Controller : MonoBehaviour
             rodar = true;
             Invoke("DejarDeRodar", 1.4f);
         }
-    }
 
-    void DejarDeRodar()
-    {
-        rodar = false;
-    }
         /*
         else
         {
@@ -219,6 +218,7 @@ public class Controller : MonoBehaviour
             animator.SetFloat("Walk", stickL.y);
         }
         */
+    }
 
     void Muerto()
     {
@@ -226,7 +226,7 @@ public class Controller : MonoBehaviour
         live = false;
         Invoke("BoolMuerto", 2.5f);
         print(live);
-        Invoke("Reiniciar", 4f);
+        Invoke("Reiniciar", 3f);
     }
 
     void Reiniciar()
@@ -239,7 +239,6 @@ public class Controller : MonoBehaviour
         print("hOlas");
     }
 
-    /*
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag == "Escalada")
@@ -247,7 +246,7 @@ public class Controller : MonoBehaviour
             Escalada();
         }
     }
-    */
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Agua")
