@@ -125,7 +125,7 @@ public class Controller : MonoBehaviour
     {
         if (running == true && stickL.y > 0f)
         {
-            speed = 10f;
+            speed = 5f;
             animator.SetBool("Run", true);
             run = true;
         }
@@ -166,10 +166,21 @@ public class Controller : MonoBehaviour
 
     public void Andar()
     {
-        float fwSpeed;
+        float fwSpeed = stickL.y;
+
         if (rodar)
         {
-            fwSpeed = 1;
+            fwSpeed = 1f;
+        }
+
+        else if(stickL.y < 0.9 && stickL.y > 0.1f)
+        {
+            fwSpeed = 1f;
+        }
+        else if(stickL.y <= 0f && stickL.y >= 0f && stickL.x != 0f)
+        {
+            fwSpeed = 1f;
+            animator.SetFloat("Walk", stickL.x);
         }
 
         else
@@ -239,6 +250,7 @@ public class Controller : MonoBehaviour
         print("hOlas");
     }
 
+    /*
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag == "Escalada")
@@ -246,7 +258,7 @@ public class Controller : MonoBehaviour
             Escalada();
         }
     }
-
+    */
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Agua")
