@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Controller : MonoBehaviour
 {
@@ -33,7 +34,8 @@ public class Controller : MonoBehaviour
 
     // Velocidades
     public float speed;
-    float rotSpeed = 1f;
+    float rotSpeed = 2.5f;
+    float moove = 1f;
 
     Vector3 moveDirection;
 
@@ -66,9 +68,7 @@ public class Controller : MonoBehaviour
         //Boton Pause
          bP = GameObject.Find("UI").GetComponent<BotonesPausa>();
          controles.UI.Start.performed += _ => bP.PauseScreen();
-        
     }
-    
 
     // Start is called before the first frame update
     void Start()
@@ -76,7 +76,6 @@ public class Controller : MonoBehaviour
         animator = GetComponent<Animator>();
         cc = GetComponent<CharacterController>();
         statsKnox = GetComponent<StatsKnox>();
-
     }
 
     // Update is called once per frame
@@ -94,11 +93,8 @@ public class Controller : MonoBehaviour
         else if (live && bP.gamePaused == false)
         {
             Muerto();
-            live = false;
-            Invoke("BoolMuerto", 2.5f);
-            print(live);
+            
         }
-
         //ComprobarRodar();
     }
 
@@ -116,17 +112,12 @@ public class Controller : MonoBehaviour
     {
         animator.SetBool("Muerto", false);
     }
-
-    void DejarDeRodar()
-    {
-        rodar = false;
-    }
-
+     
     void Correr()
     {
         if (running == true && stickL.y > 0f)
         {
-            speed = 10f;
+            speed = 5f;
             animator.SetBool("Run", true);
             run = true;
         }
@@ -164,11 +155,15 @@ public class Controller : MonoBehaviour
         }
     }
 
-
     public void Andar()
     {
-        float fwSpeed;
+        float fwSpeed = stickL.y;
         if (rodar)
+        {
+            fwSpeed = 1;
+        }
+
+        else if(fwSpeed < 0.9f && fwSpeed > 0.1f)
         {
             fwSpeed = 1;
         }
@@ -211,7 +206,12 @@ public class Controller : MonoBehaviour
             rodar = true;
             Invoke("DejarDeRodar", 1.4f);
         }
+    }
 
+    void DejarDeRodar()
+    {
+        rodar = false;
+    }
         /*
         else
         {
@@ -219,11 +219,19 @@ public class Controller : MonoBehaviour
             animator.SetFloat("Walk", stickL.y);
         }
         */
-    }
 
     void Muerto()
     {
         animator.SetBool("Muerto", true);
+        live = false;
+        Invoke("BoolMuerto", 2.5f);
+        print(live);
+        Invoke("Reiniciar", 4f);
+    }
+
+    void Reiniciar()
+    {
+        SceneManager.LoadScene(1);
     }
 
     void Escalada()
@@ -231,11 +239,20 @@ public class Controller : MonoBehaviour
         print("hOlas");
     }
 
+    /*
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag == "Escalada")
         {
             Escalada();
+        }
+    }
+    */
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Agua")
+        {
+            Muerto();
         }
     }
 
