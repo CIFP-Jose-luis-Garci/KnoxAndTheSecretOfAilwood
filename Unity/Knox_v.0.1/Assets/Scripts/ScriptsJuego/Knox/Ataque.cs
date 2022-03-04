@@ -48,17 +48,22 @@ public class Ataque : MonoBehaviour
 
     void SacarArma()
     {
+        print(controller.stickL.y + " - " + controller.run);
         if (controller.run == false)
         {
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("AtaqueLateral") && !atacar)
             {
                 arma.SetActive(true);
             }
+            else
+            {
+                arma.SetActive(false);
+            }
         }
 
-        else if (controller.run == true || controller.stickL.y != 0f)
+        else if (controller.stickL.y != 0f)
         {
-            print(controller.stickL.y);
+            //print(controller.stickL.y);
             arma.SetActive(false);
             atacar = false;
         }

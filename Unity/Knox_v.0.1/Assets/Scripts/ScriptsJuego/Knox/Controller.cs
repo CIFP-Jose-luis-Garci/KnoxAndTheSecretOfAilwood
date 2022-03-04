@@ -163,7 +163,6 @@ public class Controller : MonoBehaviour
         }
     }
 
-
     public void Andar()
     {
         float fwSpeed = stickL.y;
@@ -177,16 +176,33 @@ public class Controller : MonoBehaviour
         {
             fwSpeed = 1f;
         }
-        else if(stickL.y <= 0f && stickL.y >= 0f && stickL.x != 0f)
+
+        else if(stickL.y == 0f && stickL.x != 0f)
         {
             fwSpeed = 1f;
-            animator.SetFloat("Walk", stickL.x);
         }
 
         else
         {
             fwSpeed = stickL.y;
         }
+
+        /*
+        if (stickL.y > 0f)
+        {
+            animator.SetFloat("Walk", stickL.y);
+        }
+
+        else if (stickL.y < 0f)
+        {
+            animator.SetFloat("Walk", stickL.y);
+        }
+
+        else
+        {
+            animator.SetFloat("Walk", stickL.y);
+        }
+        */
 
         Vector3 dir = transform.TransformDirection(Vector3.forward); // Darle valor a la direccion donde queramos mover el character controller mas adelante.
 

@@ -13,6 +13,8 @@ public class Zumby : MonoBehaviour
     //Booleana que me permite saber si ha detectado al jugador
     bool detected;
     bool pillado = false;
+    bool stunned = false;
+    float stunnedTime = 1f;
 
     //Componente Nav Mesh Agent
     NavMeshAgent agent;
@@ -56,7 +58,7 @@ public class Zumby : MonoBehaviour
         // animator.SetFloat("Move", agent.speed);
 
         //Si me han detectado, cambio la animación
-        if (detected)
+        if (detected && !stunned)
         {
             goal = survivor.position;
             //audioSource.Play();
@@ -71,7 +73,7 @@ public class Zumby : MonoBehaviour
         //print(distance);
 
         //Si la distancia al objetivo es menor 
-        if (distance > 1f)
+        if (distance > 1f && !stunned)
         {
             agent.speed = 2f;
         }
@@ -137,5 +139,24 @@ public class Zumby : MonoBehaviour
             }
         }
         //print(distanceToPlayer + " - " + detected);
+    }
+
+    public void RecibirGolpe()
+    {
+        print("Me han dado");
+        lifes -= 20;
+        animator.SetTrigger("Aturdir");
+        agent.speed = 0f;
+        stunned = true;
+        Invoke("Recuperar", stunnedTime);
+        goal = transform.position;
+
+    }
+
+    void Recuperar()
+    {
+        goal = survivor.position;
+        agent.speed = 2f;
+        stunned = false;
     }
 }
