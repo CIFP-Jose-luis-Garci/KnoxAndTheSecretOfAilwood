@@ -205,8 +205,8 @@ public class Controller : MonoBehaviour
         */
 
         Vector3 dir = transform.TransformDirection(Vector3.forward); // Darle valor a la direccion donde queramos mover el character controller mas adelante.
-
         cc.SimpleMove(dir * fwSpeed * speed); // Mover el character controller.
+
         transform.Rotate(0, stickL.x * rotSpeed, 0);
 
         moveDirection.y -= gravity * Time.deltaTime;

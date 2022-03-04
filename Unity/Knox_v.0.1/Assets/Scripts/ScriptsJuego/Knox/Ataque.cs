@@ -8,6 +8,7 @@ public class Ataque : MonoBehaviour
     Animator animator;
     CharacterController characterController;
     Controller controller;
+    [SerializeField] GameObject armaEspalda;
 
     bool atacar = false;
 
@@ -54,10 +55,12 @@ public class Ataque : MonoBehaviour
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("AtaqueLateral") && !atacar)
             {
                 arma.SetActive(true);
+                armaEspalda.SetActive(false);
             }
             else
             {
                 arma.SetActive(false);
+                armaEspalda.SetActive(true);
             }
         }
 

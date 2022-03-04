@@ -17,7 +17,7 @@ public class Final : MonoBehaviour
     
     public void FinalJuego()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(2);
     }
 
     private void OnTriggerEnter(Collider other)
