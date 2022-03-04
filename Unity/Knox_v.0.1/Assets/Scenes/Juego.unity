@@ -1306,11 +1306,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 109751404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-<<<<<<< Updated upstream
   m_LocalPosition: {x: 360.7618, y: 16.2, z: 377.65903}
-=======
-  m_LocalPosition: {x: 180.03476, y: 3.89, z: 146.75046}
->>>>>>> Stashed changes
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1636320820}
@@ -1427,13 +1423,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 126692031}
-<<<<<<< Updated upstream
   m_LocalRotation: {x: -0.09478033, y: 0.8685249, z: -0.18254468, w: -0.45095304}
   m_LocalPosition: {x: 360.7618, y: 16.2, z: 377.65903}
-=======
-  m_LocalRotation: {x: -0.050486583, y: 0.9486381, z: -0.19892645, w: -0.24075982}
-  m_LocalPosition: {x: 180.03476, y: 3.89, z: 146.75046}
->>>>>>> Stashed changes
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -16925,11 +16916,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1191725139}
-<<<<<<< Updated upstream
   m_LocalRotation: {x: -0.058975354, y: 0.87910604, z: -0.112880655, w: -0.45929572}
-=======
-  m_LocalRotation: {x: -0.031631026, y: 0.9607789, z: -0.12336711, w: -0.24634138}
->>>>>>> Stashed changes
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -18676,11 +18663,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1357736656}
-<<<<<<< Updated upstream
   m_LocalRotation: {x: -0.09478032, y: 0.8685249, z: -0.18254466, w: -0.450953}
-=======
-  m_LocalRotation: {x: -0.050486576, y: 0.9486381, z: -0.1989264, w: -0.24075985}
->>>>>>> Stashed changes
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -21339,11 +21322,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1636320818}
-<<<<<<< Updated upstream
   m_LocalRotation: {x: -0.07562033, y: 0.8744255, z: -0.14473963, w: -0.45685032}
-=======
-  m_LocalRotation: {x: -0.040558487, y: 0.9556635, z: -0.15818594, w: -0.2450298}
->>>>>>> Stashed changes
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
