@@ -66,7 +66,7 @@ public class @Controles : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""a1d8c93b-4feb-4494-b758-49d473c54bc0"",
-                    ""path"": ""<Gamepad>/leftStickPress"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

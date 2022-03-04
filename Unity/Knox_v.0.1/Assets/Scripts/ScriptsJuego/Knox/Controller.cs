@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Controller : MonoBehaviour
 {
@@ -64,10 +65,9 @@ public class Controller : MonoBehaviour
         controles.Moverse.Saltar.canceled += ctx => saltar = ctx.ReadValueAsButton();
 
         //Boton Pause
-        bP = GameObject.Find("UI").GetComponent<BotonesPausa>();
-        controles.UI.Start.performed += _ => bP.PauseScreen();
+         bP = GameObject.Find("UI").GetComponent<BotonesPausa>();
+         controles.UI.Start.performed += _ => bP.PauseScreen();
         
-
     }
     
 
@@ -83,7 +83,7 @@ public class Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (statsKnox.lifes >= 1 && live && Time.timeScale == 1f)
+        if (statsKnox.lifes >= 1 && live && bP.gamePaused == false)
         {
             Correr();
 
@@ -92,12 +92,10 @@ public class Controller : MonoBehaviour
             Andar();
         }
 
-        else if (live && Time.timeScale == 1f)
+        else if (live && bP.gamePaused == false)
         {
             Muerto();
-            live = false;
-            Invoke("BoolMuerto", 2.5f);
-            print(live);
+            
         }
 
         //ComprobarRodar();
@@ -127,7 +125,7 @@ public class Controller : MonoBehaviour
     {
         if (running == true && stickL.y > 0f)
         {
-            speed = 10f;
+            speed = 5f;
             animator.SetBool("Run", true);
             run = true;
         }
@@ -150,7 +148,7 @@ public class Controller : MonoBehaviour
             moveDirection = transform.TransformDirection(moveDirection);
             moveDirection *= speed;
 
-            if (saltar == true && bP.gamePaused == false)
+            if (saltar == true)
             {
                 animator.SetBool("Saltar", true);
                 animator.SetBool("isGrounded", false);
@@ -166,11 +164,22 @@ public class Controller : MonoBehaviour
     }
 
     public void Andar()
-    {  
-        float fwSpeed;
+    {
+        float fwSpeed = stickL.y;
+
         if (rodar)
         {
-            fwSpeed = 1;
+            fwSpeed = 1f;
+        }
+
+        else if(stickL.y < 0.9 && stickL.y > 0.1f)
+        {
+            fwSpeed = 1f;
+        }
+
+        else if(stickL.y == 0f && stickL.x != 0f)
+        {
+            fwSpeed = 1f;
         }
 
         else
@@ -178,10 +187,27 @@ public class Controller : MonoBehaviour
             fwSpeed = stickL.y;
         }
 
-        Vector3 dir = transform.TransformDirection(Vector3.forward); // Darle valor a la direccion donde queramos mover el character controller mas adelante.
+        /*
+        if (stickL.y > 0f)
+        {
+            animator.SetFloat("Walk", stickL.y);
+        }
 
+        else if (stickL.y < 0f)
+        {
+            animator.SetFloat("Walk", stickL.y);
+        }
+
+        else
+        {
+            animator.SetFloat("Walk", stickL.y);
+        }
+        */
+
+        Vector3 dir = transform.TransformDirection(Vector3.forward); // Darle valor a la direccion donde queramos mover el character controller mas adelante.
         cc.SimpleMove(dir * fwSpeed * speed); // Mover el character controller.
-        transform.Rotate(0, stickL.x * rotSpeed , 0 );
+
+        transform.Rotate(0, stickL.x * rotSpeed, 0);
 
         moveDirection.y -= gravity * Time.deltaTime;
 
@@ -224,6 +250,15 @@ public class Controller : MonoBehaviour
     void Muerto()
     {
         animator.SetBool("Muerto", true);
+        live = false;
+        Invoke("BoolMuerto", 2.5f);
+        print(live);
+        Invoke("Reiniciar", 3f);
+    }
+
+    void Reiniciar()
+    {
+        SceneManager.LoadScene(1);
     }
 
     void Escalada()
@@ -231,11 +266,20 @@ public class Controller : MonoBehaviour
         print("hOlas");
     }
 
+    /*
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.tag == "Escalada")
         {
             Escalada();
+        }
+    }
+    */
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Agua")
+        {
+            Muerto();
         }
     }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 public class EliminarBichos : MonoBehaviour
 {
 
-    Zumby zumbyLifes;
+    Zumby zumby;
     Collider colliderArma;
 
     [SerializeField] GameObject vida;
@@ -17,7 +17,6 @@ public class EliminarBichos : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        zumbyLifes = GameObject.Find("Body").GetComponent<Zumby>();
         colliderArma = GameObject.Find("guja").GetComponent<BoxCollider>();
         // zumbyRigid = GameObject.Find("Body").GetComponent<Rigidbody>();
     }
@@ -42,16 +41,18 @@ public class EliminarBichos : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemigo")
         {
-            zumbyLifes.lifes -= 20;
+            Zumby zumby;
+            zumby = other.gameObject.GetComponent<Zumby>();
+            zumby.SendMessage("RecibirGolpe");
             // zumbyRigid.AddForce(0, 1, 0);
             DesactivarCollider();
             Instantiate(impacto, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
             
             Invoke("ActivarCollider", 2f);
 
-            print(zumbyLifes.lifes);
+            print(zumby.lifes);
 
-            if (zumbyLifes.lifes <= 0)
+            if (zumby.lifes <= 0)
             {
                 Destroy(other.gameObject);
             }
