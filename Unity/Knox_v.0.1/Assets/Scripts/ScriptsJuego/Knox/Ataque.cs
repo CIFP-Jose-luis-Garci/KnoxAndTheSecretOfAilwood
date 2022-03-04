@@ -49,7 +49,7 @@ public class Ataque : MonoBehaviour
 
     void SacarArma()
     {
-        print(controller.stickL.y + " - " + controller.run);
+        // print(controller.stickL.y + " - " + controller.run);
         if (controller.run == false)
         {
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("AtaqueLateral") && !atacar)

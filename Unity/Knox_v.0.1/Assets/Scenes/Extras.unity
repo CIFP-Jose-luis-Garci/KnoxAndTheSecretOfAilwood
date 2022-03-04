@@ -300,15 +300,7 @@ RectTransform:
   - {fileID: 864324689}
   - {fileID: 1595205889}
   m_Father: {fileID: 0}
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
   m_RootOrder: 5
-=======
-  m_RootOrder: 4
->>>>>>> Stashed changes
-=======
-  m_RootOrder: 4
->>>>>>> Stashed changes
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -327,18 +319,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87edb8fadd968a346a28cda5966b0b96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
   menuCamera: {fileID: 1199733367}
   trailCamera: {fileID: 856522861}
-=======
-  cameraTrail: {fileID: 856522861}
-  menuCamera: {fileID: 1199733367}
->>>>>>> Stashed changes
-=======
-  cameraTrail: {fileID: 856522861}
-  menuCamera: {fileID: 1199733367}
->>>>>>> Stashed changes
 --- !u!1 &523476390
 GameObject:
   m_ObjectHideFlags: 0
@@ -511,15 +493,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
   m_RootOrder: 4
-=======
-  m_RootOrder: 3
->>>>>>> Stashed changes
-=======
-  m_RootOrder: 3
->>>>>>> Stashed changes
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &720320588
 GameObject:
@@ -798,15 +772,7 @@ Transform:
   m_Children:
   - {fileID: 1934607282}
   m_Father: {fileID: 0}
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
   m_RootOrder: 3
-=======
-  m_RootOrder: 2
->>>>>>> Stashed changes
-=======
-  m_RootOrder: 2
->>>>>>> Stashed changes
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &864324688
 GameObject:
@@ -1297,15 +1263,7 @@ Transform:
   m_Children:
   - {fileID: 1432371153}
   m_Father: {fileID: 0}
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
   m_RootOrder: 2
-=======
-  m_RootOrder: 1
->>>>>>> Stashed changes
-=======
-  m_RootOrder: 1
->>>>>>> Stashed changes
   m_LocalEulerAnglesHint: {x: 12.189, y: -15.236, z: -2.379}
 --- !u!1 &1238847746
 GameObject:
@@ -1379,8 +1337,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1265165604
@@ -1522,12 +1478,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-=======
-  m_RootOrder: 5
->>>>>>> Stashed changes
-=======
-  m_RootOrder: 5
->>>>>>> Stashed changes
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1432371152
 GameObject:
@@ -2051,15 +2001,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
   m_RootOrder: 1
-=======
-  m_RootOrder: 0
->>>>>>> Stashed changes
-=======
-  m_RootOrder: 0
->>>>>>> Stashed changes
   m_LocalEulerAnglesHint: {x: 0, y: -12.536, z: 0}
 --- !u!114 &1795872017
 MonoBehaviour:
@@ -14995,15 +14937,7 @@ Transform:
   - {fileID: 2007489734}
   - {fileID: 1970660565}
   m_Father: {fileID: 0}
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
   m_RootOrder: 7
-=======
-  m_RootOrder: 6
->>>>>>> Stashed changes
-=======
-  m_RootOrder: 6
->>>>>>> Stashed changes
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5084535866613517131
 MeshFilter:
