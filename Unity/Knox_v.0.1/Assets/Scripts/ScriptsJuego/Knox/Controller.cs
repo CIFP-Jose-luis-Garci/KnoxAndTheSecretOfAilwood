@@ -1,3 +1,4 @@
+//using java.applet;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,10 @@ public class Controller : MonoBehaviour
     public Vector2 stickL;
     bool running;
     public bool run;
+
+    AudioSource audioSource;
+    [SerializeField] AudioClip correrAudio;
+
 
     //Boolena que me dice que estoy saltando
     bool saltando = false;
@@ -87,6 +92,8 @@ public class Controller : MonoBehaviour
         //Boton Pause
         bP = GameObject.Find("UI").GetComponent<BotonesPausa>();
          controles.UI.Start.performed += _ => bP.PauseScreen();
+
+        
     }
     
 
@@ -96,7 +103,8 @@ public class Controller : MonoBehaviour
         animator = GetComponent<Animator>();
         cc = GetComponent<CharacterController>();
         statsKnox = GetComponent<StatsKnox>();
-
+        audioSource = GetComponent<AudioSource>();
+       // audioSource.volume = 1;
     }
 
     // Update is called once per frame
@@ -153,11 +161,13 @@ public class Controller : MonoBehaviour
 
     void Correr()
     {
+        
         if (running == true)
         {
             speed = 5f;
             animator.SetBool("Run", true);
             run = true;
+            audioSource.PlayOneShot(correrAudio,2f);
         }
 
         else
