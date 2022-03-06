@@ -29,6 +29,7 @@ public class AtaqueZumby : MonoBehaviour
         {
             statsKnox.lifes--;
             animator.SetTrigger("Dolor");
+            animator.SetBool("isGrounded", true);
             print(statsKnox.lifes);
         }
     }

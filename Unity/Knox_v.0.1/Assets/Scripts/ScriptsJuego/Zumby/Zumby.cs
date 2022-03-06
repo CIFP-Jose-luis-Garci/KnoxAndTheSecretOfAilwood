@@ -28,13 +28,14 @@ public class Zumby : MonoBehaviour
     //Sonidos
     //[SerializeField] AudioClip groar1;
     //AudioSource audioSource;
+    Vector3 separacion = new Vector3(0f, 0 , -1f);
 
     //Vidas
     public int lifes = 60;
 
     //Variables para detectar al jugador
     float visionRange = 10f; //10 metros de visión
-    float visionConeAngle = 60f; //60º de angulo de visión
+    float visionConeAngle = 360f; //360º de angulo de visión
 
     // Start is called before the first frame update
     void Start()
@@ -45,7 +46,7 @@ public class Zumby : MonoBehaviour
         //audioSource.GetComponent<AudioSource>();
 
         //Iniciamos la corrutina que hace que se mueva aleatoriamiente
-        StartCoroutine("Ronda");
+        // StartCoroutine("Ronda");
         lifes = 60;
     }
 
@@ -82,10 +83,11 @@ public class Zumby : MonoBehaviour
         {
             agent.speed = 0f;
         }
+
         agent.SetDestination(goal);
     }
 
-    IEnumerator Ronda()
+    /*IEnumerator Ronda()
     {
         while (!detected)
         {
@@ -102,7 +104,7 @@ public class Zumby : MonoBehaviour
             emptyGoal.transform.position = destPos;
         }
     }
-
+    */
     void Detectar()
     {
         //Creamos un Vector3 con la posicion del jugador, y otro entre nosotros y el
@@ -124,7 +126,7 @@ public class Zumby : MonoBehaviour
                 pillado = true;
                 animator.SetTrigger("Ataque");
                 animator.SetBool("Move", false);
-                StopCoroutine("Ronda");
+                // StopCoroutine("Ronda");
             }
         }
 
@@ -135,7 +137,7 @@ public class Zumby : MonoBehaviour
                 detected = false;
                 pillado = false;
                 animator.SetBool("Move", true);
-                StartCoroutine("Ronda");
+                // StartCoroutine("Ronda");
             }
         }
         //print(distanceToPlayer + " - " + detected);
@@ -143,14 +145,12 @@ public class Zumby : MonoBehaviour
 
     public void RecibirGolpe()
     {
-        print("Me han dado");
         lifes -= 20;
         animator.SetTrigger("Aturdir");
         agent.speed = 0f;
         stunned = true;
         Invoke("Recuperar", stunnedTime);
         goal = transform.position;
-
     }
 
     void Recuperar()

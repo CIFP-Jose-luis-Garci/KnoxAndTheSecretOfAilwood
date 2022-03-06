@@ -87,7 +87,6 @@ public class Controller : MonoBehaviour
         //Boton Pause
         bP = GameObject.Find("UI").GetComponent<BotonesPausa>();
          controles.UI.Start.performed += _ => bP.PauseScreen();
-        
     }
     
 
@@ -116,13 +115,9 @@ public class Controller : MonoBehaviour
             saltando = false;
         }
 
-
-
         if (statsKnox.lifes >= 1 && live && bP.gamePaused == false)
         {
             Correr();
-
-           
 
             Andar();
         }
@@ -176,16 +171,13 @@ public class Controller : MonoBehaviour
    
     void Saltar()
     {
-        
 
        /*if(isGrounded && velocity.y < 0f)
         {
             print(velocity.y);
             velocity.y = -2.5f;
         }
-       */
-
-        
+       */        
 
         if(isGrounded && !rodar)
         {
@@ -194,6 +186,7 @@ public class Controller : MonoBehaviour
             velocity.y = Mathf.Sqrt(3 * -2 * gravity);
             saltando = true;
         }
+
         /*
         else if(isGrounded )
         {

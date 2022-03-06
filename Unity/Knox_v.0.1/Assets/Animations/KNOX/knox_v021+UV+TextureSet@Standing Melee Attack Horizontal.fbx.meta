@@ -38,8 +38,8 @@ ModelImporter:
       name: Standing Melee Attack Horizontal
       takeName: mixamo.com
       internalID: 0
-      firstFrame: 0
-      lastFrame: 86
+      firstFrame: 26
+      lastFrame: 91
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
