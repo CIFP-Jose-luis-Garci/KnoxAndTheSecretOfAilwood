@@ -3431,7 +3431,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stickL: {x: 0, y: 0}
   run: 0
-  correrAudio: {fileID: 8300000, guid: 2e013814323311a408e158c0ca97ab8c, type: 3}
+  correr: {fileID: 8300000, guid: 9ae66be21ce3bb94c8d73a51ace3e0dc, type: 3}
+  andar: {fileID: 8300000, guid: 9ae66be21ce3bb94c8d73a51ace3e0dc, type: 3}
+  cc: {fileID: 210483146}
   startBtt: 0
   speed: 0
   groundCheck: {fileID: 1958411847}
@@ -3442,6 +3444,11 @@ MonoBehaviour:
   live: 1
   cam: {fileID: 126692034}
   turnSmoothTime: 0.1
+--- !u!143 &210483146 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 3358406718177669120, guid: f1913450f403d5f498521b6babe0dcd5, type: 3}
+  m_PrefabInstance: {fileID: 850722168}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &210483148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3464,8 +3471,8 @@ AudioSource:
   m_GameObject: {fileID: 210483143}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 957d9b71bbe249b4182154dd68940a6b, type: 3}
+  OutputAudioMixerGroup: {fileID: 6472400111132298554, guid: 9fe9c5080b82efb49af2e7da03ed7231, type: 2}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.453
   m_Pitch: 1
@@ -3511,7 +3518,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -14420,7 +14427,7 @@ AudioSource:
   m_GameObject: {fileID: 607532371}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 2782952324555918918, guid: 9fe9c5080b82efb49af2e7da03ed7231, type: 2}
   m_audioClip: {fileID: 8300000, guid: a92b12aa7a624fb4e8086d2a05115b9c, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1

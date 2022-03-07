@@ -16,7 +16,8 @@ public class Controller : MonoBehaviour
     public bool run;
 
     AudioSource audioSource;
-    [SerializeField] AudioClip correrAudio;
+    [SerializeField] AudioClip correr;
+    [SerializeField] AudioClip andar;
 
 
     //Boolena que me dice que estoy saltando
@@ -27,7 +28,7 @@ public class Controller : MonoBehaviour
     float triggerL;
 
     //Character controller
-    CharacterController cc;
+    public CharacterController cc;
 
     //Rodar
     bool rodar = false;
@@ -167,7 +168,7 @@ public class Controller : MonoBehaviour
             speed = 5f;
             animator.SetBool("Run", true);
             run = true;
-            audioSource.Play();
+            
         }
 
         else
@@ -176,8 +177,21 @@ public class Controller : MonoBehaviour
             animator.SetFloat("Walk", stickL.y);
             animator.SetBool("Run", false);
             run = false;
-            audioSource.Stop();
+            
         }
+    }
+
+    void pasosAudio()
+    {
+       if(running)
+       {
+            audioSource.PlayOneShot(correr, 2f);
+       }
+       else
+        {
+           // audioSource.Pause();
+        }
+
     }
    
     void Saltar()
@@ -337,6 +351,18 @@ public class Controller : MonoBehaviour
        
     }
 
+    void andarAudio()
+    {
+        if (running == false)
+        {
+            audioSource.PlayOneShot(andar, 2f);
+        }
+        else
+        {
+            //audioSource.Stop();
+        }
+
+    }
     void Rodar()
     {
         if (stickL.y > 0 && !rodar)
