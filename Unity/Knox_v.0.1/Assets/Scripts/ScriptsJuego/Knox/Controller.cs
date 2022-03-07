@@ -167,7 +167,7 @@ public class Controller : MonoBehaviour
             speed = 5f;
             animator.SetBool("Run", true);
             run = true;
-            audioSource.PlayOneShot(correrAudio,2f);
+            audioSource.Play();
         }
 
         else
@@ -176,6 +176,7 @@ public class Controller : MonoBehaviour
             animator.SetFloat("Walk", stickL.y);
             animator.SetBool("Run", false);
             run = false;
+            audioSource.Stop();
         }
     }
    
