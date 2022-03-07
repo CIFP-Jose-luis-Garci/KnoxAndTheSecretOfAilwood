@@ -1,4 +1,3 @@
-//using java.applet;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,8 +24,8 @@ public class Controller : MonoBehaviour
     bool saltando = false;
 
     //bool strafing;
-    float triggerR;
-    float triggerL;
+    //float triggerR;
+    //float triggerL;
 
     //Character controller
     public CharacterController cc;
@@ -44,7 +43,7 @@ public class Controller : MonoBehaviour
 
     // Velocidades
     public float speed;
-    float rotSpeed = 1f;
+    //float rotSpeed = 1f;
 
     Vector3 moveDirection;
 
@@ -211,13 +210,17 @@ public class Controller : MonoBehaviour
             velocity.y = -2.5f;
         }
        */        
-
-        if(isGrounded && !rodar)
+       if(isGrounded && !rodar && !saltando)
         {
             animator.SetBool("Saltar", true);
             animator.SetBool("isGrounded", false);
             velocity.y = Mathf.Sqrt(3 * -2 * gravity);
             saltando = true;
+        }
+
+        else
+        {
+
         }
 
         /*

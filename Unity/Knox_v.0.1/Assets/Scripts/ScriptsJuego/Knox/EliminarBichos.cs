@@ -50,22 +50,21 @@ public class EliminarBichos : MonoBehaviour
             zumby = other.gameObject.GetComponent<Zumby>();
             zumby.SendMessage("RecibirGolpe");
             // zumbyRigid.AddForce(0, 1, 0);
-            DesactivarCollider();
+            /*DesactivarCollider();*/
             Instantiate(impacto, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
             
             Invoke("ActivarCollider", 2f);
 
-            
+            audioSource.PlayOneShot(metal, 1f);
 
-          audioSource.PlayOneShot(metal, 1f);
-
-            
             print(zumby.lifes);
 
             if (zumby.lifes <= 0)
             {
                 Destroy(other.gameObject);
             }
+
+            DesactivarCollider();
         }
 
         if(other.gameObject.tag == "Destruible")

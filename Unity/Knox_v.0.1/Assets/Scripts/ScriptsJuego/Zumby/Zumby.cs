@@ -46,7 +46,7 @@ public class Zumby : MonoBehaviour
         //audioSource.GetComponent<AudioSource>();
 
         //Iniciamos la corrutina que hace que se mueva aleatoriamiente
-        // StartCoroutine("Ronda");
+        StartCoroutine("Ronda");
         lifes = 60;
     }
 
@@ -87,7 +87,7 @@ public class Zumby : MonoBehaviour
         agent.SetDestination(goal);
     }
 
-    /*IEnumerator Ronda()
+    IEnumerator Ronda()
     {
         while (!detected)
         {
@@ -104,7 +104,7 @@ public class Zumby : MonoBehaviour
             emptyGoal.transform.position = destPos;
         }
     }
-    */
+    
     void Detectar()
     {
         //Creamos un Vector3 con la posicion del jugador, y otro entre nosotros y el
@@ -126,7 +126,7 @@ public class Zumby : MonoBehaviour
                 pillado = true;
                 animator.SetTrigger("Ataque");
                 animator.SetBool("Move", false);
-                // StopCoroutine("Ronda");
+                StopCoroutine("Ronda");
             }
         }
 
@@ -137,7 +137,7 @@ public class Zumby : MonoBehaviour
                 detected = false;
                 pillado = false;
                 animator.SetBool("Move", true);
-                // StartCoroutine("Ronda");
+                StartCoroutine("Ronda");
             }
         }
         //print(distanceToPlayer + " - " + detected);

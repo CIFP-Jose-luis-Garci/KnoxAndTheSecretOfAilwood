@@ -21,7 +21,7 @@ public class Vidas : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Jugador" && stats.lifes < 6 && stats.lifes >1)
+        if(other.gameObject.tag == "Jugador" && stats.lifes < 6 && stats.lifes >=1)
         {
             stats.lifes += 1;
             Destroy(gameObject);
