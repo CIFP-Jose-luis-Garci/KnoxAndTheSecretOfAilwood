@@ -18,6 +18,7 @@ public class Controller : MonoBehaviour
     AudioSource audioSource;
     [SerializeField] AudioClip correr;
     [SerializeField] AudioClip andar;
+    [SerializeField] AudioClip slash;
 
 
     //Boolena que me dice que estoy saltando
@@ -193,7 +194,14 @@ public class Controller : MonoBehaviour
         }
 
     }
-   
+
+    void gujaAudio()
+    {
+  
+      audioSource.PlayOneShot(slash, 2f);
+       
+    }
+
     void Saltar()
     {
 

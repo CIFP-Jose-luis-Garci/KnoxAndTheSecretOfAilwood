@@ -14,11 +14,16 @@ public class EliminarBichos : MonoBehaviour
     [SerializeField] GameObject estela;
     [SerializeField] Rigidbody zumbyRigid;
 
+
+    AudioSource audioSource;
+    [SerializeField] AudioClip metal;
+
     // Start is called before the first frame update
     void Start()
     {
         colliderArma = GameObject.Find("guja").GetComponent<BoxCollider>();
         // zumbyRigid = GameObject.Find("Body").GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -50,6 +55,11 @@ public class EliminarBichos : MonoBehaviour
             
             Invoke("ActivarCollider", 2f);
 
+            
+
+          audioSource.PlayOneShot(metal, 1f);
+
+            
             print(zumby.lifes);
 
             if (zumby.lifes <= 0)
@@ -64,4 +74,5 @@ public class EliminarBichos : MonoBehaviour
             Instantiate(vida, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
         }
     }
+
 }
