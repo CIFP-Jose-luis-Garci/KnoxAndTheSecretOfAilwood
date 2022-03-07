@@ -25,6 +25,10 @@ public class BotonesInicio : MonoBehaviour
         SceneManager.LoadScene(1);
 
     }
+    public void VolverMenuPrincipal()
+    {
+        SceneManager.LoadScene(0);
+    }
     public void Partida()
     {
         trailCamera.SetActive(true);
