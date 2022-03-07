@@ -362,11 +362,13 @@ public class Controller : MonoBehaviour
         Invoke("BoolMuerto", 2.5f);
         print(live);
         Invoke("Reiniciar", 3f);
+        cc.enabled = false;
     }
 
     void Reiniciar()
     {
         SceneManager.LoadScene(1);
+        cc.enabled = true;
     }
 
     void Escalada()
